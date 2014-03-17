@@ -1,0 +1,129 @@
+% Klassifiziert den Dokumenten-Typ
+% Doku: http://exp1.fkp.physik.tu-darmstadt.de/tuddesign/
+% Farben: http://www.tu-darmstadt.de/media/medien_stabsstelle_km/services/medien_cd/das_bild_der_tu_darmstadt.pdf
+%  bigchapter: Chapter haben doppelte Schriftgröße
+%  linedtoc: Linien im Inhaltsverzeichnis wie bei Überschriften
+%  colorbacktitle: Der Dokumenten-Titel wird mir der Accentfarbe hinterlegt
+\documentclass[bigchapter,colorback,accentcolor=tud4b,linedtoc,11pt]{tudreport}
+
+% Input Dokument hat das Encoding UTF-8
+\usepackage[utf8]{inputenc}
+% Wichtiges Paket für Links und verlinktes Inhaltsverzeichnis
+\usepackage[ngerman]{hyperref}
+% Paket für Fußnoten
+\usepackage[stable]{footmisc}
+% Paket für Bibliotheks-Verzeichnis, square: Verwende eckige statt runde klammern
+% \usepackage[square]{natbib}
+% Paket zum Plotten von Datensätzen
+\usepackage{pgfplots}
+% Verwende deutsche Bezeichner für Inhaltsverzeichnis, ... (ngerman = New German: neue Rechtschreibung)
+\usepackage{ngerman}
+% Modul für chemische Formeln
+\usepackage{chemformula}
+% Deutsche Zahlen (entfernt z.B. das Leerzeichen nach einem Dezimal-Komma)
+\usepackage{ziffer} 
+
+\usepackage[verbose]{placeins}
+
+
+% PDF-Optionen
+\hypersetup{
+  pdftitle={TU Darmstadt \- Physikalisches Praktikum für Fortgeschrittene},
+  pdfauthor={Manuel Kress und Sören Link},
+  pdfsubject={Versuch 4.9},
+  pdfview=FitH,
+}
+% Nummeriere formeln in Subsections einzeln
+\numberwithin{equation}{subsection}
+% Kleines makro zur assymetrischen Fehlerangabe
+\def\tol#1#2#3{\hbox{\rule{0pt}{15pt}${#1}^{+{#2}}_{-{#3}}$}}% 
+
+%BEGINN TITELSEITE
+
+\title{Laserresonator}
+
+\subtitle{Manuel Kress  \\Sören Link}
+
+\subsubtitle{Betreuer: Patric Ackermann \hfill Versuchsdatum: 10. Februar 2014}
+
+\author{Manuel Kress, Sören Link}
+
+\settitlepicture{img/title.jpg}
+
+\institution{Physikalisches Praktikum \\für Fortgeschrittene \\ Versuch 4.9}
+
+\date{\today}
+
+%ENDE TITELSEITE
+
+\begin{document}
+%ANFANG DOKUMENT
+
+%Titelseite einfügen
+\maketitle
+
+%Inhaltsverzeichnis einfügen
+\tableofcontents
+
+%ANFANG INHALT
+
+\chapter{Einleitung}
+
+\chapter{Grundlagen}
+\section{Laserprinzip}
+Die Grundvorraussetzung für jeden Laser ist die Besetzungsinversion. Dazu müssen sich für zwei Energieniveaus im Lasermedium, zwischen denen ein Übergang durch Emission von Photonen erlaubt ist, im energetischeren Niveau mehr Atome befinden als im weniger energetischen. Nur wenn diese Vorraussetzung erfüllt ist, können spontan emmitierte photonen mehr Emission als Absorption anregen, da beide vorgänge proportional zur Anzahl der Atome in den zugehörigen Energieniveaus sind.
+
+Da die Einsteinkoeffizienten für stimulierte Emission und Absorption gleich groß sind ($B_{12}=B_{21}$), ist es unmöglich, ein 2-Niveau System zum lasern anzuregen, da unabhängig von der Stärke des Pumpvorgangs und unter Vernachlässigung der spontanten Emission maximal gleichbesetzung der Niveaus 1 und 2 erreicht werden kann.
+
+Aus diesem Grund benutzt man für Laser zumeist 3- oder 4-Niveau Systeme. Dabei werden durch den Pumpvorgang Atome vom Grundniveau $E_0$ auf ein kurzlebiges niveau $E_1$ angeregt. Dieses geht sehr schnell durch spontane Emission in den langlebigen Zustand $E_{L1}$ über. 3- und 4-Niveau Systeme unterscheiden sich dadurch, dass im 3-Niveau System der Laservorgang von $E_{L1}$ nach $E_{0}$ stattfindet, wärend im 4-Niveau System ein kurzlebiger Zustand $E_{L2}$ zwischengeschaltet ist. Dies erlaubt das Betreiben von Lasern mit einem 4-Niveau System bei bereits sehr geringer Pumpleistung, da auch bei sehr geringer Anregung bereits Besetzungsinversion zwischen den relevanten Laser-Niveaus besteht.
+
+Beim HeNe-Laser im speziellen werden Helium-Atome durch Gasentladungen von einem Grundzustand in die Zustände $2^{9}S_{1}$ und $2^{0}S_{0}$, welche beide metastabil sind, angeregt. Die so angeregten Heliumatome geben ihre Energie durch stöße an das Neon ab, welches dadurch in den 3s bzw 2s Zustand angeregt wird. Ermöglicht wird dieser Energietransfer durch den Geringen Energieunterschied der betroffenen Helium- und Neon Energieniveaus. Der Laserforgang selbst erfolg dann beim Übergang der Neon-Atome von dem 3s zum 2p Zustand, letzterer geht dann relativ schnell durch spontane Emission in den 1s Zustand über, welcher nach Stößen mit der Wand des Verstärkermediums in den Grundzustand übergeht.
+
+TODO: Bild der He-Ne Niveaus
+\section{Laserozillatoren}
+
+\section{Resonatortheorie}
+
+\section{Gefahren durch Laserstrahlung}
+
+\chapter{Durchführung}
+\section{Ausgangsleistung des Lasers in Abh. von der Resonatorlänge}
+
+\section{Strahlbreite der Grundmode in Abh. von der Resonatorlänge}
+
+\section{Longitudinale Modensruktur in Abh. von der Resonatorlänge}
+
+\section{Verstärkungsbandbreite des HeNe-Lasers}
+
+\section{Beobachtung höherer transversaler Moden}
+
+\chapter{Auswertung}
+\section{Ausgangsleistung des Lasers in Abh. von der Resonatorlänge}
+
+\section{Strahlbreite der Grundmode in Abh. von der Resonatorlänge}
+
+\section{Longitudinale Modensruktur in Abh. von der Resonatorlänge}
+
+\section{Verstärkungsbandbreite des HeNe-Lasers}
+
+\section{Beobachtung höherer transversaler Moden}
+
+\chapter{Fazit}
+
+
+%ENDE INHALT
+
+\cleardoublepage{}
+% Eintrag fürs Inhaltsverzeichnis
+
+\newpage
+\begin{thebibliography}{100}
+\end{thebibliography}
+
+\cleardoublepage{}
+% Eintrag fürs Inhaltsverzeichnis
+% Abbildungsverzeichnis einfügen
+\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
+\listoffigures
+
+\end{document}
