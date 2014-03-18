@@ -147,6 +147,7 @@ Da die optische Achse des Laserresonators nicht perfekt kalibiriert war, war bei
 Für den Abstand der Longitudinalen Moden im Resonator ist folgender Zusammenhang zu erwarten:
 $$\Delta\nu=\frac{c}{2L}$$
 \FloatBarrier
+\newpage
 \section{Verstärkungsbandbreite des HeNe-Lasers}
 Zur Bestimmung der Verstärkungsbandbreite des HeNe-Lasers wurde die Länge des Resonators auf 81cm eingestellt. Anschließend wurde das Laserrohr so justiert, dass nur noch die $TEM_{00}$ Mode angeregt wird. Das so angeregte Verstärkungsprofil wurde nun bei einer Ausgangsleistung der Mode von etwa 191mW mit Hilfe eines digitalen Oszilloskops über mehrere Sekunden hinweg aufgenommen. Anschließend wurde das Laserrohr so verkippt, dass auf Grund von Beugungsverlusten die Leistung auf etwa 101mW reduziert abfiel. Im Anschluss wurde erneut das Verstärkungsprofil der $TEM_{00}$ Mode aufgenommen.
 
@@ -162,9 +163,15 @@ Zur Bestimmung der Verstärkungsbandbreite des HeNe-Lasers wurde die Länge des 
 \caption{Verstärkungsprofil des HeNe-Lasers bei einer Ausgangsleistung von etwa 101mW. Für bessere Sichtbarkeit des relevanten bereichs wurden teile der Achsen entfernt. Das Bild ist im Original im Anhang beigefügt}
 \label{HeNeBreite101mW}
 \end{figure}
-Während bei der zweiten Messung wie zu erwarten ein deutlicher Intensitätsabfall zu erkennen ist, scheint die Breite des Verstärkungsprofils annähend gleich zu sein.
 \FloatBarrier
+Während bei der zweiten Messung wie zu erwarten ein deutlicher Intensitätsabfall zu erkennen ist, scheint die Breite des Verstärkungsprofils annähend gleich zu sein.
 \section{Beobachtung höherer transversaler Moden}
+Zur Beobachtung höhrer Transversaler Moden wurded ein Drahtkreuz in den Laserresonator eingebracht, um die $TEM_{00}$-Mode zu unterdrücken. Dies erlaubte es, durch gezieltes verkippen des Resonators, höhere Moden anzuregen. Die so angeregten höheren Moden wurden wie in 3.2 mit einer CCD Kamera aufgenommen. Um Rauschen zu unterdrücken wurde dabei über etwa eine Sekunde an Messdaten gemittelt. Da höhere Moden im Gegensatz zut $TEM_{00}$ Mode nicht rotationssymmetrisch sind, mussten die so aufgenommenen Messdaten noch rotiert werden, um einen Modenverlauf symmetrisch zu Paralellen der x- und y-Achsen zu erreichen.
+
+Für die Intensitätsverteilung der Moden ist folgender Zusammenhang zu erwarten
+$$I_{mn}(x, y, z) = I_0 \left[ H_m \left( \frac{ \sqrt{2} x}{w} \right) \exp \left( \frac{-x^2}{w^2} \right) \right]^2 \left[ H_n \left( \frac{ \sqrt{2} y}{w} \right) \exp \left( \frac{-y^2}{w^2} \right) \right]^2$$
+\cite{TransModeIntensity}
+wobei $H_k$ das k-te Hermitische Polynom ist.
 
 \chapter{Auswertung}
 \section{Ausgangsleistung des Lasers in Abh. von der Resonatorlänge}
@@ -186,9 +193,11 @@ Während bei der zweiten Messung wie zu erwarten ein deutlicher Intensitätsabfa
 % Eintrag fürs Inhaltsverzeichnis
 
 \newpage
+
 \begin{thebibliography}{100}
   \bibitem{mappe} Literaturmappe zum Versuch aus der physikalischen Bibliothek
-  \bibitem{HeNeNiveaus} http://lp.uni-goettingen.de/get/image/5074
+  \bibitem{HeNeNiveaus} \verb|http://lp.uni-goettingen.de/get/image/5074|
+  \bibitem{TransModeIntensity} \verb|http://en.wikipedia.org/w/index.php?title=Transverse_mode&oldid=579051975|
 \end{thebibliography}
 
 \cleardoublepage{}
