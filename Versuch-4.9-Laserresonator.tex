@@ -79,7 +79,13 @@ Aus diesem Grund benutzt man für Laser zumeist 3- oder 4-Niveau Systeme. Dabei 
 
 Beim HeNe-Laser im speziellen werden Helium-Atome durch Gasentladungen von einem Grundzustand in die Zustände $2^{9}S_{1}$ und $2^{0}S_{0}$, welche beide metastabil sind, angeregt. Die so angeregten Heliumatome geben ihre Energie durch stöße an das Neon ab, welches dadurch in den 3s bzw 2s Zustand angeregt wird. Ermöglicht wird dieser Energietransfer durch den Geringen Energieunterschied der betroffenen Helium- und Neon Energieniveaus. Der Laserforgang selbst erfolg dann beim Übergang der Neon-Atome von dem 3s zum 2p Zustand, letzterer geht dann relativ schnell durch spontane Emission in den 1s Zustand über, welcher nach Stößen mit der Wand des Verstärkermediums in den Grundzustand übergeht.
 
-TODO: Bild der He-Ne Niveaus
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=65mm]{img/5074.png}
+\caption{Energieschema eines HeNe-Lasers}
+\label{HeNeLaser}
+\cite{HeNeNiveaus}
+\end{figure}
 \section{Laserozillatoren}
 
 \section{Resonatortheorie}
@@ -88,6 +94,41 @@ TODO: Bild der He-Ne Niveaus
 
 \chapter{Durchführung}
 \section{Ausgangsleistung des Lasers in Abh. von der Resonatorlänge}
+Zur Bestimmung der Stabilitätsgrenze des Resonaturs wurde die Ausgangsleistung für 11 Resonatorlängen aufgenommen, wobei eine Resonatorlänge innerhalb von 2 cm der errechneten Stabilitätsgrenze befand.
+Die Spiegel des Laserresonators wurden dazu symmetrisch zum Verstärkermedium voneinander entfernt und die Ausgangsleistung des Resonators wurde mit dem S120C Messkopf, angeschlossen an PM100D Messgerät, aufgenommen. Anschließend wurde versucht, die aufgenommene Leistung durch Justage des Laserrohrs und der Resonatorspiegel zu optimieren.
+
+Zu erwarten war hierbei eine annährend konstante Leistung des Lasers bis einige cm vor der Stabilitätsgrenze, mit einem kleinen Einbruch bei etwa der halben Stabilitätsgrenze.
+
+Als Fehler für die jeweilige Spiegelposition wurden 1.5mm angenommen. Der Fehler für die aufgenommene Leistung wurde über die Fluktuation am Leistungsmessgerät abgeschätzt
+
+
+\begin{center}
+\begin{figure}[h]
+\begin{tikzpicture}
+\begin{axis}[
+    title={Ausgangsleistung des Laserresonators in Abhängigkeit der Resonatorlänge},
+    xlabel=Resonatorlänge in cm,
+    ylabel=Ausgangsleistung in mW,
+    width=0.9\textwidth,
+    height= 11cm,
+    xmin=20,
+    xmax=92,
+    grid=both,
+    ymin=0,
+    ymax=0.6,
+    tick align=outside,
+    tickpos=left,
+    minor x tick num=3,
+    minor y tick num=4,
+    minor grid style={dotted,thin}
+]
+\addplot[only marks, mark=x, mark size=1pt, error bars/.cd, y dir=both, x dir=both]
+table[x index={0},y index={2}, x error index ={1}, y error index={3}] {messdaten/ausgangsleistung.lvm};
+\end{axis}
+\end{tikzpicture}
+\captionof{figure}{Ausgangsleistung des Laserresonators in Abhängigkeit der Resonatorlänge. Zu sehen ist die annährend konstante Leistugn des Resonators bis hin zu etwa 88cm und der Abfall der Leistung bei etwa der halben Stabilitätsgrenze und bei 89cm Resonatorlänge. Fehlerbalken sind eingezeichnet aber zu klein um sie zu sehen}
+\end{figure}
+\end{center}
 
 \section{Strahlbreite der Grundmode in Abh. von der Resonatorlänge}
 
@@ -118,6 +159,8 @@ TODO: Bild der He-Ne Niveaus
 
 \newpage
 \begin{thebibliography}{100}
+  \bibitem{mappe} Literaturmappe zum Versuch aus der physikalischen Bibliothek
+  \bibitem{HeNeNiveaus} http://lp.uni-goettingen.de/get/image/5074
 \end{thebibliography}
 
 \cleardoublepage{}
