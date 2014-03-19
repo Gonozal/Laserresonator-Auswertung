@@ -25,6 +25,9 @@
 
 \usepackage[verbose]{placeins}
 
+%\usepackage{graphicx}
+%\usepackage{caption}
+\usepackage{subcaption} %Für subfigures
 
 % PDF-Optionen
 \hypersetup{
@@ -87,7 +90,7 @@
 
 \chapter{Grundlagen}
 \section{Laserprinzip}
-Die Grundvorraussetzung für jeden Laser ist die Besetzungsinversion. Dazu müssen sich für zwei Energieniveaus im Lasermedium, zwischen denen ein Übergang durch Emission von Photonen erlaubt ist, im energetischeren Niveau mehr Atome befinden als im weniger energetischen. Nur wenn diese Vorraussetzung erfüllt ist, können spontan emmitierte photonen mehr Emission als Absorption anregen, da beide vorgänge proportional zur Anzahl der Atome in den zugehörigen Energieniveaus sind.
+Die Grundvorraussetzung für jeden Laser ist die Besetzungsinversion. Dazu müssen sich für zwei Energieniveaus im Lasermedium, zwischen denen ein Übergang durch Emission von Photonen erlaubt ist, im energetischeren Niveau mehr Atome befinden als im weniger energetischen. Nur wenn diese Voraussetzung erfüllt ist, können spontan emmitierte Photonen mehr Emission als Absorption anregen, da beide vorgänge proportional zur Anzahl der Atome in den zugehörigen Energieniveaus sind.
 
 Da die Einsteinkoeffizienten für stimulierte Emission und Absorption gleich groß sind ($B_{12}=B_{21}$), ist es unmöglich, ein 2-Niveau System zum lasern anzuregen, da unabhängig von der Stärke des Pumpvorgangs und unter Vernachlässigung der spontanten Emission maximal gleichbesetzung der Niveaus 1 und 2 erreicht werden kann.
 
@@ -103,6 +106,20 @@ Beim HeNe-Laser im speziellen werden Helium-Atome durch Gasentladungen von einem
 \cite{HeNeNiveaus}
 \end{figure}
 \section{Laserozillatoren}
+Ein optischer Oszillator ist ein optischer Aufbau innerhalb dessen Licht hin- und her oszillieren kann. Im einfachsten Sinne besteht ein optischer Oszillator aus zwei in einem Abstand \(L\) gegenüberstehenden, planparallelen Spiegeln. Innerhalb dieser beiden Spiegeln wird Licht immer wieder von der einen Seite zur anderen reflektiert. Es schwingen also innerhalb des Oszillators stehende Lichtwellen. Da aber an den Orten der Spiegel die Wellenfunktionen jeweils verschwinden müssen, können sich nur stehende Wellen ausbilden, welche einen Knoten an den Spiegelpositionen haben. Für die Wellenlängen dieser stehenden Wellen gilt \(\lambda_n = \frac{2L}{n}\). Alle Lichtwellen anderer Wellenlängen werden durch destruktive Interferenz ausgelöscht. Für die Wellenlängen \(\lambda_n\) ist der Oszillator also ein Resonator.
+
+Bei einem Laser wird das Lasermedium in eines solchen Resonator gebracht. Jedesmal wenn eine Lichtwelle durch den Laserresonator und damit durch das Lasermedium läuft, wird diese durch das Laserprinzip (siehe oben) verstärkt. Verstärkt werden aber nur jene Lichtwellen mit einer Wellenlänge von \(\lambda_n\). Die durch den Resonator verstärkten Frequenzen \(\nu_n = \frac{c}{\lambda_n}\) haben also einen Frequenzabstand \(\Delta\nu\) von
+
+$$ \Delta\nu = \frac{c}{2L} $$
+
+wobei $c$ die Lichtgeschwindigkeit im Vakuum ist. \(\Delta\nu\) nennt sich auch Modenabstand oder freier Spektralbereich des Laserresonators.
+
+\section{Verstärkungsbandbreite}
+
+Natürlich läuft der Laser nicht auf allen Frequenzen $\nu_n$, sondern nur auf jenen, welche überhaupt durch das Lasermedium erzeugt werden. Die Breite des Spektrums des Lasermediums ist durch drei wesentliche Effekte gegeben: Natürliche Linienbreite, Dopplerverbreiterung und Druckverbreiterung.
+
+
+
 
 \section{Resonatortheorie}
 
@@ -110,7 +127,7 @@ Beim HeNe-Laser im speziellen werden Helium-Atome durch Gasentladungen von einem
 
 \chapter{Durchführung}
 \section{Ausgangsleistung des Lasers in Abh. von der Resonatorlänge}
-Zur Bestimmung der Stabilitätsgrenze des Resonaturs wurde die Ausgangsleistung für 11 Resonatorlängen aufgenommen, wobei eine Resonatorlänge innerhalb von 2 cm der errechneten Stabilitätsgrenze befand.
+Zur Bestimmung der Stabilitätsgrenze des Resonators wurde die Ausgangsleistung für 11 Resonatorlängen aufgenommen, wobei eine Resonatorlänge innerhalb von 2 cm der errechneten Stabilitätsgrenze befand.
 Die Spiegel des Laserresonators wurden dazu symmetrisch zum Verstärkermedium voneinander entfernt und die Ausgangsleistung des Resonators wurde mit dem S120C Messkopf, angeschlossen an PM100D Messgerät, aufgenommen. Anschließend wurde versucht, die aufgenommene Leistung durch Justage des Laserrohrs und der Resonatorspiegel zu optimieren.
 
 Zu erwarten war hierbei eine annährend konstante Leistung des Lasers bis einige cm vor der Stabilitätsgrenze, mit einem kleinen Einbruch bei etwa der halben Stabilitätsgrenze.
@@ -120,12 +137,14 @@ Als Fehler für die jeweilige Spiegelposition wurden 1.5mm angenommen. Der Fehle
 
 \FloatBarrier
 \section{Strahlbreite der Grundmode in Abh. von der Resonatorlänge}
-Zur Bestimmung der Strahlbreite der Grundmode in Abhängigkeit von der Resonatorlänge wurde für 10 verschiedene Resonatorlängen ein Querschnitt durch die $TEM_{00}$ Mode mit einer CCD-Kamera aufgenommen. Um nur die Grundmode anzuregen, wurde das Laserrohr verkippt, bis alle anderen Moden durch Beugungsverluste eliminiert waren.
+Zur Bestimmung der Strahlbreite \(w\left(\frac{L}{2}\right)\) der Grundmode am Resonatorausgang in Abhängigkeit von der Resonatorlänge \(L\) wurde für 10 verschiedene Resonatorlängen ein Querschnitt durch die $TEM_{00}$ Mode mit einer CCD-Kamera aufgenommen. Um nur die Grundmode anzuregen, wurde das Laserrohr verkippt, bis alle anderen Moden durch Beugungsverluste eliminiert waren.
 
-Hierbei ist zu erwarten, dass die Strahlbreite $w\left(\frac{L}{2}\right)$ mit zunehmender Resonatorlänge mit der Beziehung 
-$$w\left(\frac{L}{2}\right)=w_0\cdot\sqrt{1+\left({\frac{L\lambda}{2w_{0}^{2}\pi}}\right)^2}$$
-zunimmt.
-Die Strahlbreite ist hier definiert als die Breite, an dem die Intensität des Strahls auf $\exp(-2)$ der Maximalintensität abgefallen ist.
+Hierbei ist zu erwarten, dass die Strahlbreite $w\left(\frac{L}{2}\right)$ mit zunehmender Resonatorlänge \(L\) mit der Beziehung 
+$$w\left(\frac{L}{2}\right)=w_0\cdot\sqrt{1+\left({\frac{L}{2 z_0}}\right)^2}$$
+zunimmt. Die Strahlbreite \(w\) bei einem Gauß-Stral ist im allgemeinen als die Breite des axialen Profils gegeben, an dem die Intensität des Strahls auf $\frac{1}{e^2}$ der Maximalintensität abgefallen ist. \(z_0=\frac{\pi w_0^2}{\lambda}\) bezeichnet die Rayleigh-Länge mit der Wellenlänge \(\lambda\) des Lichtes und der breite des Strahles \(w_0\) an der Strahltaille. \(z_0\) und damit auch \(w_0\) ist über den Krümmungsradius $R(z)$ der Wellenfront des Gauß-Strahles im Abstand z gegeben:
+$$R(z) = z \left(1+\left(\frac{z_0}{z}\right)^2\right)$$
+Es gilt nämlich an der Spiegelposition \(z_S\) ist der Radius der Wellenfront \(R(z_S)\) gleich dem Spiegelradius \(r_s\).
+
 
 \FloatBarrier
 \section{Longitudinale Modensruktur in Abh. von der Resonatorlänge}
@@ -154,12 +173,186 @@ Zur Bestimmung der Verstärkungsbandbreite des HeNe-Lasers wurde die Länge des 
 \FloatBarrier
 Während bei der zweiten Messung wie zu erwarten ein deutlicher Intensitätsabfall zu erkennen ist, scheint die Breite des Verstärkungsprofils annähend gleich zu sein.
 \section{Beobachtung höherer transversaler Moden}
-Zur Beobachtung höhrer Transversaler Moden wurded ein Drahtkreuz in den Laserresonator eingebracht, um die $TEM_{00}$-Mode zu unterdrücken. Dies erlaubte es, durch gezieltes verkippen des Resonators, höhere Moden anzuregen. Die so angeregten höheren Moden wurden wie in 3.2 mit einer CCD Kamera aufgenommen. Um Rauschen zu unterdrücken wurde dabei über etwa eine Sekunde an Messdaten gemittelt. Da höhere Moden im Gegensatz zut $TEM_{00}$ Mode nicht rotationssymmetrisch sind, mussten die so aufgenommenen Messdaten noch rotiert werden, um einen Modenverlauf symmetrisch zu Paralellen der x- und y-Achsen zu erreichen.
+Zur Beobachtung höhrer Transversaler Moden wurde ein Drahtkreuz in den Laserresonator eingebracht, um die $TEM_{00}$-Mode zu unterdrücken. Dies erlaubte es, durch gezieltes verkippen des Resonators, höhere Moden anzuregen. Die so angeregten höheren Moden wurden wie in 3.2 mit einer CCD Kamera aufgenommen. Um Rauschen zu unterdrücken wurde dabei über etwa eine Sekunde an Messdaten gemittelt. Da höhere Moden im Gegensatz zut $TEM_{00}$ Mode nicht rotationssymmetrisch sind, mussten die so aufgenommenen Messdaten noch rotiert werden, um einen Modenverlauf symmetrisch zu Paralellen der x- und y-Achsen zu erreichen.
 
-Für die Intensitätsverteilung der Moden ist folgender Zusammenhang zu erwarten
-$$I_{mn}(x, y, z) = I_0 \left[ H_m \left( \frac{ \sqrt{2} x}{w} \right) \exp \left( \frac{-x^2}{w^2} \right) \right]^2 \left[ H_n \left( \frac{ \sqrt{2} y}{w} \right) \exp \left( \frac{-y^2}{w^2} \right) \right]^2$$
+Für die eindimensionale Intensitätsverteilung der Moden ist folgender Zusammenhang zu erwarten
+$$I_{n}(x) = I_0 \cdot  H_y \left( \frac{x}{w} \right)^2 \exp \left( \frac{-x^2}{w^2} \right)  $$
 \cite{TransModeIntensity}
 wobei $H_k$ das k-te Hermitische Polynom ist.
+
+Folgende Daten wurden aufgenommen. Die Diagramme zeigen jeweils die Intensitätsverteilung entlang der in den Bildern gezeigten Schnitte parallel zur x- bzw. y-Achse (oben nach unten, links nach rechts).
+
+\begin{figure}[h]
+        \centering
+        \begin{subfigure}{0.5\textwidth}
+                \includegraphics[width=\textwidth]{img/TEM23.png}
+        \end{subfigure}%
+        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+          %(or a blank line to force the subfigure onto a new line)
+        \begin{subfigure}{0.5\textwidth}
+                \begin{tikzpicture}
+								\begin{axis}[
+										%title={Strahlbreiten in Abhängigkeit der Resonatorlänge},
+										xlabel=Pixel,
+										ylabel=Intensität,
+										width=0.9\textwidth,
+										height=7cm,
+										xmin=1,
+										xmax=750,
+										grid=both,
+										ymin=0,
+										ymax=7000,
+										tick align=outside,
+										tickpos=left,
+										minor x tick num=3,
+										minor y tick num=4,
+										minor grid style={dotted,thin},
+										legend pos=north east,
+										yticklabels={,,},
+										ylabel near ticks,
+								]
+								\addplot [smooth, red, thick,] table {latexdata/TEM23x.dat};
+								\addlegendentry{$I_x$}
+
+								\addplot[smooth, blue, thick] table {latexdata/TEM23y.dat};
+								\addlegendentry{$I_y$}
+
+								\end{axis}
+								\end{tikzpicture}
+        \end{subfigure}
+	\captionof{figure}{
+		TEM23-Mode, Bild gedreht um 5 Grad
+	}
+\end{figure}
+
+\begin{figure}[h]
+        \centering
+        \begin{subfigure}{0.5\textwidth}
+                \includegraphics[width=\textwidth]{img/TEM33.png}
+        \end{subfigure}%
+        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+          %(or a blank line to force the subfigure onto a new line)
+        \begin{subfigure}{0.5\textwidth}
+                \begin{tikzpicture}
+								\begin{axis}[
+										%title={Strahlbreiten in Abhängigkeit der Resonatorlänge},
+										xlabel=Pixel,
+										ylabel=Intensität,
+										width=0.9\textwidth,
+										height=7cm,
+										xmin=1,
+										xmax=750,
+										grid=both,
+										ymin=0,
+										ymax=3500,
+										tick align=outside,
+										tickpos=left,
+										minor x tick num=3,
+										minor y tick num=4,
+										minor grid style={dotted,thin},
+										legend pos=north east,
+										yticklabels={,,},
+										ylabel near ticks,
+								]
+								\addplot [smooth, red, thick,] table {latexdata/TEM33x.dat};
+								\addlegendentry{$I_x$}
+
+								\addplot[smooth, blue, thick] table {latexdata/TEM33y.dat};
+								\addlegendentry{$I_y$}
+
+								\end{axis}
+								\end{tikzpicture}
+        \end{subfigure}
+	\captionof{figure}{
+		TEM33-Mode, Bild gedreht um 5 Grad
+	}
+\end{figure}
+
+\begin{figure}[h]
+        \centering
+        \begin{subfigure}{0.5\textwidth}
+                \includegraphics[width=\textwidth]{img/TEM50.png}
+        \end{subfigure}%
+        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+          %(or a blank line to force the subfigure onto a new line)
+        \begin{subfigure}{0.5\textwidth}
+                \begin{tikzpicture}
+								\begin{axis}[
+										%title={Strahlbreiten in Abhängigkeit der Resonatorlänge},
+										xlabel=Pixel,
+										ylabel=Intensität,
+										width=0.9\textwidth,
+										height=7cm,
+										xmin=1,
+										xmax=750,
+										grid=both,
+										ymin=0,
+										ymax=4500,
+										tick align=outside,
+										tickpos=left,
+										minor x tick num=3,
+										minor y tick num=4,
+										minor grid style={dotted,thin},
+										legend pos=north east,
+										yticklabels={,,},
+										ylabel near ticks,
+								]
+								\addplot [smooth, red, thick,] table {latexdata/TEM50x.dat};
+								\addlegendentry{$I_x$}
+
+								\addplot[smooth, blue, thick] table {latexdata/TEM50y.dat};
+								\addlegendentry{$I_y$}
+
+								\end{axis}
+								\end{tikzpicture}
+        \end{subfigure}
+	\captionof{figure}{
+		TEM50-Mode, Bild gedreht um 5 Grad
+	}
+\end{figure}
+
+\begin{figure}[h]
+        \centering
+        \begin{subfigure}{0.5\textwidth}
+                \includegraphics[width=\textwidth]{img/TEM52.png}
+        \end{subfigure}%
+        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+          %(or a blank line to force the subfigure onto a new line)
+        \begin{subfigure}{0.5\textwidth}
+                \begin{tikzpicture}
+								\begin{axis}[
+										%title={Strahlbreiten in Abhängigkeit der Resonatorlänge},
+										xlabel=Pixel,
+										ylabel=Intensität,
+										width=0.9\textwidth,
+										height=7cm,
+										xmin=1,
+										xmax=750,
+										grid=both,
+										ymin=0,
+										ymax=3000,
+										tick align=outside,
+										tickpos=left,
+										minor x tick num=3,
+										minor y tick num=4,
+										minor grid style={dotted,thin},
+										legend pos=north east,
+										yticklabels={,,},
+										ylabel near ticks,
+								]
+								\addplot [smooth, red, thick,] table {latexdata/TEM52x.dat};
+								\addlegendentry{$I_x$}
+
+								\addplot[smooth, blue, thick] table {latexdata/TEM52y.dat};
+								\addlegendentry{$I_y$}
+
+								\end{axis}
+								\end{tikzpicture}
+        \end{subfigure}
+	\captionof{figure}{
+		TEM52-Mode, Bild gedreht um 5 Grad
+	}
+\end{figure}
 
 \chapter{Auswertung}
 \section{Ausgangsleistung des Lasers in Abh. von der Resonatorlänge}
@@ -384,6 +577,326 @@ Da diese Werte nur graphisch bestimmt wurden mit einer Abschätzung, wo die jewe
 Unter der Annahme, dass die Verstärkungsbandbreite primär durch gaußförmige Dopplerverbreiterung hervorgerufen wird, sollte sich unter Vernachlässigung von Verlusten im Resonator ein gaußförmiges Verstärkungsprofil mit der Standardabweichung $\sigma = \frac{f_0}{c}\sqrt{\frac{k_b T}{m}}$ mit dem Mittelwert des Verstärlkungsprofils $f_0$, der Teilchentemperatur $T$ und der Teilchemnasse $T=20u$ ergeben. Für die Berechnung eines theoretischen Wertes für die Verstärkungsbandbreite fehlen uns leider Werte wie die mittlere Teilchentemperatur um Verstärkerrohr sowie Auskünte über Verluste im Resonator.
 
 \section{Beobachtung höherer transversaler Moden}
+
+Die eindimensionale Intensitätsverteilung der höheren TEM-Moden folgt (wie bereits oben erwähnt) folgendem Verlauf:
+
+$$I_{n}(x) \propto H_n \left( \frac{x-\mu}{\sigma} \right)^2 \exp \left( \frac{-(x-\mu)^2}{\sigma^2} \right)  $$
+
+Zur Auswertung wird versucht, durch Anpassung der Parameter \(\sigma\) und \(\mu\) (\(\mu\) erzeugt eine horizontale Verschiebung der Verteilung) einen möglichst genauen Fit der erwarteten Intensitätsverteilung über die Messdaten zu legen. Die Amplituden der Fits werden jeweils entsprechend angepasst, sodass sie in etwa zu denen der Messdaten passen.
+
+\begin{figure}[h]
+        \centering
+        \begin{subfigure}{0.5\textwidth}
+                \begin{tikzpicture}
+								\begin{axis}[
+								    title={x-Schnitt},
+										xlabel=Pixel,
+										ylabel=Intensität,
+										width=0.9\textwidth,
+										height=7cm,
+										xmin=1,
+										xmax=750,
+										grid=both,
+										ymin=0,
+										ymax=7000,
+										tick align=outside,
+										tickpos=left,
+										minor x tick num=3,
+										minor y tick num=4,
+										minor grid style={dotted,thin},
+										legend pos=north west,
+										yticklabels={,,},
+										ylabel near ticks,
+								]
+								\addplot [smooth, blue, thick] table {latexdata/TEM23x.dat};
+								\addlegendentry{$I_x$}
+								
+								\addplot [smooth, red, thick, domain=0:800, samples=100] {exp(-(x-421.674)^2/(77.7091^2))*1162.62*(-2+(4*(x-421.674)^2)/(77.7091^2))^2};
+								\addlegendentry{$Fit$}
+
+								\end{axis}
+								\end{tikzpicture}
+								\caption{
+								\(\mu = 421,674\), \(\sigma = 77,7091\)
+								}
+        \end{subfigure}%
+        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+          %(or a blank line to force the subfigure onto a new line)
+        \begin{subfigure}{0.5\textwidth}
+                \begin{tikzpicture}
+								\begin{axis}[
+										title={y-Schnitt},
+										xlabel=Pixel,
+										ylabel=Intensität,
+										width=0.9\textwidth,
+										height=7cm,
+										xmin=1,
+										xmax=750,
+										grid=both,
+										ymin=0,
+										ymax=7000,
+										tick align=outside,
+										tickpos=left,
+										minor x tick num=3,
+										minor y tick num=4,
+										minor grid style={dotted,thin},
+										legend pos=north east,
+										yticklabels={,,},
+										ylabel near ticks,
+								]
+
+								\addplot[smooth, blue, thick] table {latexdata/TEM23y.dat};
+								\addlegendentry{$I_y$}
+								
+								\addplot [smooth, red, thick, domain=0:800, samples=100] {exp(-(x-248.956)^2/(85.9621^2))*224.818*((8*(x-248.956)^3)/(85.9621^3) -(12*(x-248.956))/(85.9621))^2};
+								\addlegendentry{$Fit$}
+
+								\end{axis}
+								\end{tikzpicture}
+								\caption{
+								\(\mu = 248,956\), \(\sigma = 85,9621\)
+								}
+        \end{subfigure}
+	\captionof{figure}{
+		TEM23-Mode: Vergleich der gemessenen mit der erwarteten Intensitätsverteilung
+	}
+\end{figure}
+\FloatBarrier
+\begin{figure}[h]
+        \centering
+        \begin{subfigure}{0.5\textwidth}
+                \begin{tikzpicture}
+								\begin{axis}[
+								    title={x-Schnitt},
+										xlabel=Pixel,
+										ylabel=Intensität,
+										width=0.9\textwidth,
+										height=7cm,
+										xmin=1,
+										xmax=750,
+										grid=both,
+										ymin=0,
+										ymax=3000,
+										tick align=outside,
+										tickpos=left,
+										minor x tick num=3,
+										minor y tick num=4,
+										minor grid style={dotted,thin},
+										legend pos=north west,
+										yticklabels={,,},
+										ylabel near ticks,
+								]
+								\addplot [smooth, blue, thick] table {latexdata/TEM33x.dat};
+								\addlegendentry{$I_x$}
+								
+								\addplot [smooth, red, thick, domain=0:800, samples=100] {exp(-(x-442.4)^2/(78.7475^2))*68.7467*((8*(x-442.4)^3)/(78.7475^3) -(12*(x-442.4))/(78.7475))^2};
+								\addlegendentry{$Fit$}
+
+								\end{axis}
+								\end{tikzpicture}
+								\caption{
+								\(\mu = 442,400\), \(\sigma = 78,7475\)
+								}
+        \end{subfigure}%
+        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+          %(or a blank line to force the subfigure onto a new line)
+        \begin{subfigure}{0.5\textwidth}
+                \begin{tikzpicture}
+								\begin{axis}[
+										title={y-Schnitt},
+										xlabel=Pixel,
+										ylabel=Intensität,
+										width=0.9\textwidth,
+										height=7cm,
+										xmin=1,
+										xmax=750,
+										grid=both,
+										ymin=0,
+										ymax=3000,
+										tick align=outside,
+										tickpos=left,
+										minor x tick num=3,
+										minor y tick num=4,
+										minor grid style={dotted,thin},
+										legend pos=north east,
+										yticklabels={,,},
+										ylabel near ticks,
+								]
+
+								\addplot[smooth, blue, thick] table {latexdata/TEM33y.dat};
+								\addlegendentry{$I_y$}
+								
+								\addplot [smooth, red, thick, domain=0:800, samples=100] {exp(-(x-244.328)^2/(84.807^2))*91.7463*((8*(x-244.328)^3)/(84.807^3) -(12*(x-244.328))/(84.807))^2};
+								\addlegendentry{$Fit$}
+
+								\end{axis}
+								\end{tikzpicture}
+								\caption{
+								\(\mu = 244,328\), \(\sigma = 84,807\)
+								}
+        \end{subfigure}
+	\captionof{figure}{
+		TEM33-Mode: Vergleich der gemessenen mit der erwarteten Intensitätsverteilung
+	}
+\end{figure}
+\FloatBarrier
+\begin{figure}[h]
+        \centering
+        \begin{subfigure}{0.5\textwidth}
+                \begin{tikzpicture}
+								\begin{axis}[
+								    title={x-Schnitt},
+										xlabel=Pixel,
+										ylabel=Intensität,
+										width=0.9\textwidth,
+										height=7cm,
+										xmin=1,
+										xmax=750,
+										grid=both,
+										ymin=0,
+										ymax=4000,
+										tick align=outside,
+										tickpos=left,
+										minor x tick num=3,
+										minor y tick num=4,
+										minor grid style={dotted,thin},
+										legend pos=north west,
+										yticklabels={,,},
+										ylabel near ticks,
+								]
+								\addplot [smooth, blue, thick] table {latexdata/TEM50x.dat};
+								\addlegendentry{$I_x$}
+								
+								\addplot [smooth, red, thick, domain=0:800, samples=100] {exp(-(x-440.895)^2/(80.112^2))*1.4719*((32*(x-440.895)^5)/(80.112^5) - (160*(x-440.895)^3)/(80.112^3) +(120*(x-440.895))/(80.112))^2};
+								\addlegendentry{$Fit$}
+
+								\end{axis}
+								\end{tikzpicture}
+								\caption{
+								\(\mu = 440,895\), \(\sigma = 80,112\)
+								}
+        \end{subfigure}%
+        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+          %(or a blank line to force the subfigure onto a new line)
+        \begin{subfigure}{0.5\textwidth}
+                \begin{tikzpicture}
+								\begin{axis}[
+										title={y-Schnitt},
+										xlabel=Pixel,
+										ylabel=Intensität,
+										width=0.9\textwidth,
+										height=7cm,
+										xmin=1,
+										xmax=750,
+										grid=both,
+										ymin=0,
+										ymax=4000,
+										tick align=outside,
+										tickpos=left,
+										minor x tick num=3,
+										minor y tick num=4,
+										minor grid style={dotted,thin},
+										legend pos=north east,
+										yticklabels={,,},
+										ylabel near ticks,
+								]
+
+								\addplot[smooth, blue, thick] table {latexdata/TEM50y.dat};
+								\addlegendentry{$I_y$}
+								
+								\addplot [smooth, red, thick, domain=0:800, samples=100] {exp(-(x-231.669)^2/(84.4827^2))*3597.15};
+								\addlegendentry{$Fit$}
+
+								\end{axis}
+								\end{tikzpicture}
+								\caption{
+								\(\mu = 231,669\), \(\sigma = 84,4827\)
+								}
+        \end{subfigure}
+	\captionof{figure}{
+		TEM50-Mode: Vergleich der gemessenen mit der erwarteten Intensitätsverteilung
+	}
+\end{figure}
+\FloatBarrier
+\begin{figure}[h]
+        \centering
+        \begin{subfigure}{0.5\textwidth}
+                \begin{tikzpicture}
+								\begin{axis}[
+								    title={x-Schnitt},
+										xlabel=Pixel,
+										ylabel=Intensität,
+										width=0.9\textwidth,
+										height=7cm,
+										xmin=1,
+										xmax=750,
+										grid=both,
+										ymin=0,
+										ymax=3000,
+										tick align=outside,
+										tickpos=left,
+										minor x tick num=3,
+										minor y tick num=4,
+										minor grid style={dotted,thin},
+										legend pos=north west,
+										yticklabels={,,},
+										ylabel near ticks,
+								]
+								\addplot [smooth, blue, thick] table {latexdata/TEM52x.dat};
+								\addlegendentry{$I_x$}
+								
+								\addplot [smooth, red, thick, domain=0:800, samples=100] {exp(-(x-419.064)^2/(75.4268^2))*444.784*(-2+(4*(x-419.064)^2)/(75.4268^2))^2};
+								\addlegendentry{$Fit$}
+
+								\end{axis}
+								\end{tikzpicture}
+								\caption{
+								\(\mu = 419,064\), \(\sigma = 75,4268\)
+								}
+        \end{subfigure}%
+        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+          %(or a blank line to force the subfigure onto a new line)
+        \begin{subfigure}{0.5\textwidth}
+                \begin{tikzpicture}
+								\begin{axis}[
+										title={y-Schnitt},
+										xlabel=Pixel,
+										ylabel=Intensität,
+										width=0.9\textwidth,
+										height=7cm,
+										xmin=1,
+										xmax=750,
+										grid=both,
+										ymin=0,
+										ymax=3000,
+										tick align=outside,
+										tickpos=left,
+										minor x tick num=3,
+										minor y tick num=4,
+										minor grid style={dotted,thin},
+										legend pos=north east,
+										yticklabels={,,},
+										ylabel near ticks,
+								]
+
+								\addplot[smooth, blue, thick] table {latexdata/TEM52y.dat};
+								\addlegendentry{$I_y$}
+								
+								\addplot [smooth, red, thick, domain=0:800, samples=100] {exp(-(x-252.043)^2/(86.0702^2))*1.02425*((32*(x-252.043)^5)/(86.0702^5) - (160*(x-252.043)^3)/(86.0702^3) +(120*(x-252.043))/(86.0702))^2};
+								\addlegendentry{$Fit$}
+
+								\end{axis}
+								\end{tikzpicture}
+								\caption{
+								\(\mu = 252,043\), \(\sigma = 86,0702\)
+								}
+        \end{subfigure}
+	\captionof{figure}{
+		TEM52-Mode: Vergleich der gemessenen mit der erwarteten Intensitätsverteilung
+	}
+\end{figure}
+\FloatBarrier
+Anhand der Graphen erkennt man deutlich, dass die gemessenen Intensitätsverteilungen immer sehr nahe bei den theoretischen Erwartungen liegen. Die geringen sichtbaren Abweichungen haben verschiedene Ursachen, so erzeugt zum Beispiel Schmutz auf dem CCD-Sensor Interferenzeffekte (deutlich sichtbare Ringe auf den Bildern der TEM-Moden) und dadurch Verfälschungen der Intensitätsverteilungen. Auch Schwankungen der Laserintensität während des Messzeitraumes von 1 Sekunde erzeugen Abweichungen. Zusammenfassend kann man aber sagen, dass alle Ungenauigkeiten vertretbar sind und die qualitativen theoretischen Erwartungen sehr gut in der Praxis bestätigt wurden.
 
 \chapter{Fazit}
 
