@@ -114,36 +114,9 @@ Zur Bestimmung der Stabilitätsgrenze des Resonaturs wurde die Ausgangsleistung 
 Die Spiegel des Laserresonators wurden dazu symmetrisch zum Verstärkermedium voneinander entfernt und die Ausgangsleistung des Resonators wurde mit dem S120C Messkopf, angeschlossen an PM100D Messgerät, aufgenommen. Anschließend wurde versucht, die aufgenommene Leistung durch Justage des Laserrohrs und der Resonatorspiegel zu optimieren.
 
 Zu erwarten war hierbei eine annährend konstante Leistung des Lasers bis einige cm vor der Stabilitätsgrenze, mit einem kleinen Einbruch bei etwa der halben Stabilitätsgrenze.
+Für den Abfall der Leistung am Rande der Stabilitätsgrenze können Beugungsverluste an den Spiegeln verantwortlich sein, die mit zunehmender Strahlgröße des Lasers an den Spiegeln zunehmen.
 
 Als Fehler für die jeweilige Spiegelposition wurden 1.5mm angenommen. Der Fehler für die aufgenommene Leistung wurde über die Fluktuation am Leistungsmessgerät abgeschätzt
-
-\begin{center}
-\begin{figure}[h]
-\begin{tikzpicture}
-\begin{axis}[
-    title={Ausgangsleistung des Laserresonators in Abhängigkeit der Resonatorlänge},
-    xlabel=Resonatorlänge in cm,
-    ylabel=Ausgangsleistung in mW,
-    width=0.9\textwidth,
-    height= 11cm,
-    xmin=20,
-    xmax=92,
-    grid=both,
-    ymin=0,
-    ymax=0.6,
-    tick align=outside,
-    tickpos=left,
-    minor x tick num=3,
-    minor y tick num=4,
-    minor grid style={dotted,thin}
-]
-\addplot[only marks, mark=x, mark size=1pt, error bars/.cd, y dir=both, x dir=both]
-table[x index={0},y index={2}, x error index ={1}, y error index={3}] {messdaten/ausgangsleistung.lvm};
-\end{axis}
-\end{tikzpicture}
-\captionof{figure}{Ausgangsleistung des Laserresonators in Abhängigkeit der Resonatorlänge. Zu sehen ist die annährend konstante Leistugn des Resonators bis hin zu etwa 88cm und der Abfall der Leistung bei etwa der halben Stabilitätsgrenze und bei 89cm Resonatorlänge. Fehlerbalken sind eingezeichnet aber zu klein um sie zu sehen}
-\end{figure}
-\end{center}
 
 \FloatBarrier
 \section{Strahlbreite der Grundmode in Abh. von der Resonatorlänge}
@@ -190,8 +163,46 @@ wobei $H_k$ das k-te Hermitische Polynom ist.
 
 \chapter{Auswertung}
 \section{Ausgangsleistung des Lasers in Abh. von der Resonatorlänge}
+Die Ausgangsleistung des Lasers ist von 25cm bis zu 85cm Resonatorlänge abgesehen von einem Einbruch bei der halben theoretischen Stabilitätsgrenze von 45cm annährend konstant. Erst ab 88cm Resonatorlänge fängt die Leistung des Lasers an, einzubrechen.
 
-\newpage
+\begin{center}
+\begin{figure}[h]
+\begin{tikzpicture}
+\begin{axis}[
+    legend pos=south west,
+    title={Ausgangsleistung des Laserresonators in Abhängigkeit der Resonatorlänge},
+    xlabel=Resonatorlänge in cm,
+    ylabel=Ausgangsleistung in mW,
+    width=0.9\textwidth,
+    height= 9cm,
+    xmin=20,
+    xmax=94,
+    grid=both,
+    ymin=0,
+    ymax=0.6,
+    tick align=outside,
+    tickpos=left,
+    minor x tick num=3,
+    minor y tick num=4,
+    minor grid style={dotted,thin}
+]
+\addplot[only marks, mark=x, mark size=1pt, error bars/.cd, y dir=both, x dir=both]
+table[x index={0},y index={2}, x error index ={1}, y error index={3}] {messdaten/ausgangsleistung.lvm};
+\addlegendentry{Messpunkte Ausgangsleistung}
+\addplot[blue, mark size=0.0pt, samples=20, domain=20:94]{9.918-0.107*x};
+\addlegendentry{Fitgerade Stabilitätsgrenze}
+\addplot[red, mark size=0.0pt, samples=20, domain=20:90]{-0.0001445*x+0.5624195};
+\addlegendentry{Fitgerade konstante Ausgangsleistung}
+\addplot[red, densely dashed, mark size=0.0pt, samples=20, domain=20:90]{0.00047315*x+0.52712714};
+\addplot[red, densely dashed, mark size=0.0pt, samples=20, domain=20:90]{-0.000762499*x+0.59771180};
+\addlegendentry{Fehlergeraden konstante Ausgangsleistung}
+\end{axis}
+\end{tikzpicture}
+\captionof{figure}{Ausgangsleistung des Laserresonators in Abhängigkeit der Resonatorlänge. Zu sehen ist die annährend konstante Leistugn des Resonators bis hin zu etwa 88cm und der Abfall der Leistung bei etwa der halben Stabilitätsgrenze und bei 89cm Resonatorlänge. Fehlerbalken sind eingezeichnet aber zu klein um sie zu sehen. Es domitiert ein systematischer Fehler durch nicht optimale Justage des Laserresonators. Die Fitgerade für die als konstant angenommene Leistung wurde unter Ausnahme der Punkte bei 46cm, 88cm und 89cm berechnet.}
+\end{figure}
+\end{center}
+
+Der Fit der Geraden durch die letzten beiden Messpunkte liefert $x=92.6916$ als Stabilitätsgrenze. Auf Grund fehlende weiterer Messpunkte im relevanten Intervall ist eine genaue Bestimmung und eine Fehlerangabe des errechneten Werts schwierig, hier würde eine weiterer Messwert bei z.B. 88.5cm Resonatorlänge helfen.
 \section{Strahlbreite der Grundmode in Abh. von der Resonatorlänge}
 Die Strahlbreite wird aus den gemessenen Daten gewonnen, indem auf die gemessenen Punkte ein Gauß-fit gelegt wird. Die Strahlbreite wird dann über die Formel
 $w=2*\sqrt{4}\cdot\sigma$
@@ -344,7 +355,7 @@ Der longitudinaler Modenabstand passt praktisch perfekt auf das Modell $\Delta\n
 \section{Verstärkungsbandbreite des HeNe-Lasers}
 Die Verstärkungsbandbreite des HeNe-Lasers wird hauptsächlich durch Doppler-Verbreiterung im Lasserrohr hervorgerufen, die Verstärkungsbandbreite sollte also in etwa gaußförmiges Profil haben. Bei Verringerung der Intensität des Lasers sollte die Verstärkungsbandbreite zudem reduziert werden, da weiter außer liegende Moden unter die durch Verluste im Resonator verursachte Laserschwelle fallen.
 
-Die Laserschwelle kommt daher zustande, dass ein Laser pro Durchlauf zwar prinzipiell alle Moden verstärkt, verluste durch Verunreinigungen am Spiegel oder auf den Fenstern des Laser-Rohres, nicht perfekte Reflektivität der Spiegel und Streuung in der Luft führen allerdings zu einem fixen Intensitätsverlust bei jedem Umlauf im Resonator. Aufgrund dessen können nur Moden, die eine höhere Verstärkung als Verluste erfahren, im Laserresonator anlaufen.
+Die Laserschwelle kommt daher zustande, dass ein Laser pro Durchlauf zwar prinzipiell alle Moden verstärkt, verluste durch Verunreinigungen und Beugung am Spiegel oder auf den Fenstern des Laser-Rohres, nicht perfekte Reflektivität der Spiegel und Streuung in der Luft führen allerdings zu einem fixen Intensitätsverlust bei jedem Umlauf im Resonator. Aufgrund dessen können nur Moden, die eine höhere Verstärkung als Verluste erfahren, im Laserresonator anlaufen.
 
 \begin{figure}[h!]
   \centering
