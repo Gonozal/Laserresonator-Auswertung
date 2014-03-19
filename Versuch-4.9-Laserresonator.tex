@@ -90,7 +90,7 @@
 
 \chapter{Grundlagen}
 \section{Laserprinzip}
-Die Grundvorraussetzung für jeden Laser ist die Besetzungsinversion. Dazu müssen sich für zwei Energieniveaus im Lasermedium, zwischen denen ein Übergang durch Emission von Photonen erlaubt ist, im energetischeren Niveau mehr Atome befinden als im weniger energetischen. Nur wenn diese Vorraussetzung erfüllt ist, können spontan emmitierte photonen mehr Emission als Absorption anregen, da beide vorgänge proportional zur Anzahl der Atome in den zugehörigen Energieniveaus sind.
+Die Grundvorraussetzung für jeden Laser ist die Besetzungsinversion. Dazu müssen sich für zwei Energieniveaus im Lasermedium, zwischen denen ein Übergang durch Emission von Photonen erlaubt ist, im energetischeren Niveau mehr Atome befinden als im weniger energetischen. Nur wenn diese Voraussetzung erfüllt ist, können spontan emmitierte Photonen mehr Emission als Absorption anregen, da beide vorgänge proportional zur Anzahl der Atome in den zugehörigen Energieniveaus sind.
 
 Da die Einsteinkoeffizienten für stimulierte Emission und Absorption gleich groß sind ($B_{12}=B_{21}$), ist es unmöglich, ein 2-Niveau System zum lasern anzuregen, da unabhängig von der Stärke des Pumpvorgangs und unter Vernachlässigung der spontanten Emission maximal gleichbesetzung der Niveaus 1 und 2 erreicht werden kann.
 
@@ -106,6 +106,20 @@ Beim HeNe-Laser im speziellen werden Helium-Atome durch Gasentladungen von einem
 \cite{HeNeNiveaus}
 \end{figure}
 \section{Laserozillatoren}
+Ein optischer Oszillator ist ein optischer Aufbau innerhalb dessen Licht hin- und her oszillieren kann. Im einfachsten Sinne besteht ein optischer Oszillator aus zwei in einem Abstand \(L\) gegenüberstehenden, planparallelen Spiegeln. Innerhalb dieser beiden Spiegeln wird Licht immer wieder von der einen Seite zur anderen reflektiert. Es schwingen also innerhalb des Oszillators stehende Lichtwellen. Da aber an den Orten der Spiegel die Wellenfunktionen jeweils verschwinden müssen, können sich nur stehende Wellen ausbilden, welche einen Knoten an den Spiegelpositionen haben. Für die Wellenlängen dieser stehenden Wellen gilt \(\lambda_n = \frac{2L}{n}\). Alle Lichtwellen anderer Wellenlängen werden durch destruktive Interferenz ausgelöscht. Für die Wellenlängen \(\lambda_n\) ist der Oszillator also ein Resonator.
+
+Bei einem Laser wird das Lasermedium in eines solchen Resonator gebracht. Jedesmal wenn eine Lichtwelle durch den Laserresonator und damit durch das Lasermedium läuft, wird diese durch das Laserprinzip (siehe oben) verstärkt. Verstärkt werden aber nur jene Lichtwellen mit einer Wellenlänge von \(\lambda_n\). Die durch den Resonator verstärkten Frequenzen \(\nu_n = \frac{c}{\lambda_n}\) haben also einen Frequenzabstand \(\Delta\nu\) von
+
+$$ \Delta\nu = \frac{c}{2L} $$
+
+wobei $c$ die Lichtgeschwindigkeit im Vakuum ist. \(\Delta\nu\) nennt sich auch Modenabstand oder freier Spektralbereich des Laserresonators.
+
+\section{Verstärkungsbandbreite}
+
+Natürlich läuft der Laser nicht auf allen Frequenzen $\nu_n$, sondern nur auf jenen, welche überhaupt durch das Lasermedium erzeugt werden. Die Breite des Spektrums des Lasermediums ist durch drei wesentliche Effekte gegeben: Natürliche Linienbreite, Dopplerverbreiterung und Druckverbreiterung.
+
+
+
 
 \section{Resonatortheorie}
 
@@ -113,7 +127,7 @@ Beim HeNe-Laser im speziellen werden Helium-Atome durch Gasentladungen von einem
 
 \chapter{Durchführung}
 \section{Ausgangsleistung des Lasers in Abh. von der Resonatorlänge}
-Zur Bestimmung der Stabilitätsgrenze des Resonaturs wurde die Ausgangsleistung für 11 Resonatorlängen aufgenommen, wobei eine Resonatorlänge innerhalb von 2 cm der errechneten Stabilitätsgrenze befand.
+Zur Bestimmung der Stabilitätsgrenze des Resonators wurde die Ausgangsleistung für 11 Resonatorlängen aufgenommen, wobei eine Resonatorlänge innerhalb von 2 cm der errechneten Stabilitätsgrenze befand.
 Die Spiegel des Laserresonators wurden dazu symmetrisch zum Verstärkermedium voneinander entfernt und die Ausgangsleistung des Resonators wurde mit dem S120C Messkopf, angeschlossen an PM100D Messgerät, aufgenommen. Anschließend wurde versucht, die aufgenommene Leistung durch Justage des Laserrohrs und der Resonatorspiegel zu optimieren.
 
 Zu erwarten war hierbei eine annährend konstante Leistung des Lasers bis einige cm vor der Stabilitätsgrenze, mit einem kleinen Einbruch bei etwa der halben Stabilitätsgrenze.
@@ -140,7 +154,7 @@ Als Fehler für die jeweilige Spiegelposition wurden 1.5mm angenommen. Der Fehle
     minor y tick num=4,
     minor grid style={dotted,thin}
 ]
-\addplot[only marks, mark=x, mark size=1pt, error bars/.cd, y dir=both, x dir=both]
+\addplot[only marks, mark=x, mark size=3pt, error bars/.cd, y dir=both, x dir=both]
 table[x index={0},y index={2}, x error index ={1}, y error index={3}] {messdaten/ausgangsleistung.lvm};
 \end{axis}
 \end{tikzpicture}
@@ -150,12 +164,14 @@ table[x index={0},y index={2}, x error index ={1}, y error index={3}] {messdaten
 
 \FloatBarrier
 \section{Strahlbreite der Grundmode in Abh. von der Resonatorlänge}
-Zur Bestimmung der Strahlbreite der Grundmode in Abhängigkeit von der Resonatorlänge wurde für 10 verschiedene Resonatorlängen ein Querschnitt durch die $TEM_{00}$ Mode mit einer CCD-Kamera aufgenommen. Um nur die Grundmode anzuregen, wurde das Laserrohr verkippt, bis alle anderen Moden durch Beugungsverluste eliminiert waren.
+Zur Bestimmung der Strahlbreite \(w\left(\frac{L}{2}\right)\) der Grundmode am Resonatorausgang in Abhängigkeit von der Resonatorlänge \(L\) wurde für 10 verschiedene Resonatorlängen ein Querschnitt durch die $TEM_{00}$ Mode mit einer CCD-Kamera aufgenommen. Um nur die Grundmode anzuregen, wurde das Laserrohr verkippt, bis alle anderen Moden durch Beugungsverluste eliminiert waren.
 
-Hierbei ist zu erwarten, dass die Strahlbreite $w\left(\frac{L}{2}\right)$ mit zunehmender Resonatorlänge mit der Beziehung 
-$$w\left(\frac{L}{2}\right)=w_0\cdot\sqrt{1+\left({\frac{L\lambda}{2w_{0}^{2}\pi}}\right)^2}$$
-zunimmt.
-Die Strahlbreite ist hier definiert als die Breite, an dem die Intensität des Strahls auf $\exp(-2)$ der Maximalintensität abgefallen ist.
+Hierbei ist zu erwarten, dass die Strahlbreite $w\left(\frac{L}{2}\right)$ mit zunehmender Resonatorlänge \(L\) mit der Beziehung 
+$$w\left(\frac{L}{2}\right)=w_0\cdot\sqrt{1+\left({\frac{L}{2 z_0}}\right)^2}$$
+zunimmt. Die Strahlbreite \(w\) bei einem Gauß-Stral ist im allgemeinen als die Breite des axialen Profils gegeben, an dem die Intensität des Strahls auf $\frac{1}{e^2}$ der Maximalintensität abgefallen ist. \(z_0=\frac{\pi w_0^2}{\lambda}\) bezeichnet die Rayleigh-Länge mit der Wellenlänge \(\lambda\) des Lichtes und der breite des Strahles \(w_0\) an der Strahltaille. \(z_0\) und damit auch \(w_0\) ist über den Krümmungsradius $R(z)$ der Wellenfront des Gauß-Strahles im Abstand z gegeben:
+$$R(z) = z \left(1+\left(\frac{z_0}{z}\right)^2\right)$$
+Es gilt nämlich an der Spiegelposition \(z_S\) ist der Radius der Wellenfront \(R(z_S)\) gleich dem Spiegelradius \(r_s\).
+
 
 \FloatBarrier
 \section{Longitudinale Modensruktur in Abh. von der Resonatorlänge}
