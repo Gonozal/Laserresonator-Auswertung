@@ -38,6 +38,21 @@
 % Kleines makro zur assymetrischen Fehlerangabe
 \def\tol#1#2#3{\hbox{\rule{0pt}{15pt}${#1}^{+{#2}}_{-{#3}}$}}% 
 
+% Entspricht-Zeichen
+\usepackage{scalerel}
+
+\newcommand\equalhat{%
+\let\savearraystretch\arraystretch
+\renewcommand\arraystretch{0.3}
+\begin{array}{c}
+\stretchto{
+    \scalerel*[\widthof{=}]{\wedge}
+    {\rule{1ex}{3ex}}%
+}{0.5ex}\\ 
+=%
+\end{array}
+\let\arraystretch\savearraystretch
+}
 %BEGINN TITELSEITE
 
 \title{Laserresonator}
@@ -53,6 +68,7 @@
 \institution{Physikalisches Praktikum \\für Fortgeschrittene \\ Versuch 4.9}
 
 \date{\today}
+
 
 %ENDE TITELSEITE
 
@@ -254,24 +270,107 @@ bestimmt. Dies führt zu folgenden experimentellen und erwarteten Werten für di
 \FloatBarrier
   
 \section{Longitudinale Modensruktur in Abh. von der Resonatorlänge}
+Für Jede Resonatorlänge sind auf die Messdaten des Interferometers zwei Lorenzkurven gefittet. Der Abstand der Peaks dieser Kurven ist der longitudinaler Modenabstand für die jeweilige Resonatorlänge. Da das ans Interferometer angeschlossene Digitaloszilliskop den Abstand in Sekunden angibt, war zuvor die Bestimmung eines Umrechnungsfaktors von Sekunden zu GHz notwendig. Es gilt
+$$8,0248s \equalhat 10GHz$$
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=65mm]{img/Modenabstand25cm.png}
+  \caption{Zwei Lorenzkurven gefittet auf die Messpunkte aus dem Interferometer, hier am Beispiel für eine Resonatorlänge von 25cm. Die Grüne linie markiert den gemessenen Abstand zwischen den Peaks der in rot gezeichneten Fits der Lorenzkurven auf die blauen Messpunkte auf die blauen Messpunkte}
+\end{figure}
+\FloatBarrier
+
 \begin{center}
-  \begin{tabular}{ | p{4cm} | p{3.5cm} | p{3cm} | p{4cm} | }
+  \begin{tabular}{ | p{2.3cm} | p{2.7cm} | p{2cm} | p{2.8cm} | p{5.7cm} | }
     \hline
     % Resonatorlänge & Modenabstand in ms	& Abstand in GHz & Theoretischer Abstand in GHz & stuff \\ \hline
-    Resonatorlänge in cm & Modenabstand in ms & Abstand in GHz & Theoretischer Abstand in GHz \\ \hline
-    25 & 0,4774 & 0,594937 & 0,600000 \\ \hline
-    32 & 0,3821 & 0,476173 & 0,468750 \\ \hline
-    39 & 0,3094 & 0,385541 & 0,384615 \\ \hline
-    46 & 0,2609 & 0,325107 & 0,326087 \\ \hline
-    53 & 0,2242 & 0,281910 & 0,283018 \\ \hline
-    60 & 0,2007 & 0,250071 & 0,250000 \\ \hline
-    67 & 0,1804 & 0,224864 & 0,223881 \\ \hline
-    74 & 0,1635 & 0,203695 & 0,202703 \\ \hline
-    81 & 0,1452 & 0,180879 & 0,185185 \\ \hline
-    88 & 0,1375 & 0,171313 & 0,170454 \\ \hline
+    Resonatorlänge in cm & Modenabstand in ms & Abstand in GHz & Theoretischer Abstand in GHz & Abweichung Gemessener Abstand vom Theoriewert in \% \\ \hline
+    25 & 0,4774 & 0,594937 & 0,600000 & 0,85 \\ \hline
+    32 & 0,3821 & 0,476173 & 0,468750 & 1,56 \\ \hline
+    39 & 0,3094 & 0,385541 & 0,384615 & 0,24 \\ \hline
+    46 & 0,2609 & 0,325107 & 0,326087 & 0,30 \\ \hline
+    53 & 0,2242 & 0,281910 & 0,283018 & 0,39 \\ \hline
+    60 & 0,2007 & 0,250071 & 0,250000 & 0,03 \\ \hline
+    67 & 0,1804 & 0,224864 & 0,223881 & 0,44 \\ \hline
+    74 & 0,1635 & 0,203695 & 0,202703 & 0,49 \\ \hline
+    81 & 0,1452 & 0,180879 & 0,185185 & 2,38 \\ \hline
+    88 & 0,1375 & 0,171313 & 0,170454 & 0,50 \\ \hline
   \end{tabular}
 \end{center}
+\FloatBarrier
+\begin{center}
+\begin{figure}[h]
+\begin{tikzpicture}
+\begin{axis}[
+    title={Longitudinaler Modenabstand in abh. der Resonatorlänge},
+    xlabel=Resonatorlänge in cm,
+    ylabel=Longitudinaler Modenabstand in GHz,
+    width=0.9\textwidth,
+    height=10cm,
+    xmin=20,
+    xmax=92,
+    grid=both,
+    ymin=0.15,
+    ymax=0.62,
+    tick align=outside,
+    tickpos=left,
+    minor x tick num=3,
+    minor y tick num=4,
+    minor grid style={dotted,thin},
+    legend pos=north east
+]
+\addplot[smooth, red, mark=x, mark size=2pt] coordinates {
+  (25, 0.594937) (32, 0.476173) (39, 0.385541) (46, 0.325107)
+  (53, 0.281910) (60, 0.250071) (67, 0.224864) (74, 0.203695)
+  (81, 0.180879) (88, 0.171313)
+};
+\addlegendentry{Gemessener Modenabstand}
+
+\addplot[smooth, blue, mark=x, mark size=2pt] coordinates {
+  (25, 0.600000) (32, 0.468750) (39, 0.384615) (46, 0.326087)
+  (53, 0.283018) (60, 0.250000) (67, 0.223881) (74, 0.202703)
+  (81, 0.185185) (88, 0.170454)
+};
+\addlegendentry{Theoretischer Modenabstand}
+\end{axis}
+\end{tikzpicture}
+\captionof{figure}{
+  Longitudinaler Modenabstand in Abhängigkeit der Resonatorlänger. Die gute Übereinstimmung der gemessenen Daten mit dem Modell $\Delta\nu = \frac{c}{2L}$ ist hier sehr schön zu sehen. Es gibt nur wenige Messpunkte, die überhaupt optisch von den theoretischen Daten zu unterscheiden sind.
+}
+\end{figure}
+\end{center}
+\FloatBarrier
+Der longitudinaler Modenabstand passt praktisch perfekt auf das Modell $\Delta\nu = \frac{c}{2L}$, die größte Abweichung beträgt weniger als 2.5\% vom errechneten Wert.
 \section{Verstärkungsbandbreite des HeNe-Lasers}
+Die Verstärkungsbandbreite des HeNe-Lasers wird hauptsächlich durch Doppler-Verbreiterung im Lasserrohr hervorgerufen, die Verstärkungsbandbreite sollte also in etwa gaußförmiges Profil haben. Bei Verringerung der Intensität des Lasers sollte die Verstärkungsbandbreite zudem reduziert werden, da weiter außer liegende Moden unter die durch Verluste im Resonator verursachte Laserschwelle fallen.
+
+Die Laserschwelle kommt daher zustande, dass ein Laser pro Durchlauf zwar prinzipiell alle Moden verstärkt, verluste durch Verunreinigungen am Spiegel oder auf den Fenstern des Laser-Rohres, nicht perfekte Reflektivität der Spiegel und Streuung in der Luft führen allerdings zu einem fixen Intensitätsverlust bei jedem Umlauf im Resonator. Aufgrund dessen können nur Moden, die eine höhere Verstärkung als Verluste erfahren, im Laserresonator anlaufen.
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=95mm]{img/Bandbreite81cm191mW4uW.png}
+  \caption{Verstärkungsprofil des HeNe-Lasers bei einer Ausgangsleistung von 191mW. Der grüne Kasten representiert die angenommene Verstärkungsbandbreite}
+\end{figure}
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=95mm]{img/Bandbreite81cm101mW4uW.png}
+  \caption{Verstärkungsprofil des HeNe-Lasers bei einer Ausgangsleistung von 101mW. Der grüne Kasten representiert die angenommene Verstärkungsbandbreite}
+\end{figure}
+\FloatBarrier
+
+Mit dem aus 4.3 gewonnenen Umrechnungsfaktor $8,0248s \equalhat 10GHz$ kommen wir auf folgende Werte für die Verstärkungsbandbreite
+\begin{center}
+  \begin{tabular}{ | p{2.8cm} | p{3.7cm} | p{3.6cm} | p{5cm} | }
+    \hline
+    % Resonatorlänge & Modenabstand in ms	& Abstand in GHz & Theoretischer Abstand in GHz & stuff \\ \hline
+    Resonatorlänge in cm & Ausgangsleistung in mW & Fehler der Ausgangsleistung in $\mu W$ & Verstärkungsbandbreite in GHz \\ \hline
+    88 & 191 & 4 & 0,9444 \\ \hline
+    88 & 101 & 4 & 0,6376 \\ \hline
+  \end{tabular}
+\end{center}
+Da diese Werte nur graphisch bestimmt wurden mit einer Abschätzung, wo die jeweiligen Gauskurven enden, sind die gewonnenen Verstärkungsbandbreiten nur eine grobe Abschätzung der tatsächlichen Werte.
+
+Unter der Annahme, dass die Verstärkungsbandbreite primär durch gaußförmige Dopplerverbreiterung hervorgerufen wird, sollte sich unter Vernachlässigung von Verlusten im Resonator ein gaußförmiges Verstärkungsprofil mit der Standardabweichung $\sigma = \frac{f_0}{c}\sqrt{\frac{k_b T}{m}}$ mit dem Mittelwert des Verstärlkungsprofils $f_0$, der Teilchentemperatur $T$ und der Teilchemnasse $T=20u$ ergeben. Für die Berechnung eines theoretischen Wertes für die Verstärkungsbandbreite fehlen uns leider Werte wie die mittlere Teilchentemperatur um Verstärkerrohr sowie Auskünte über Verluste im Resonator.
 
 \section{Beobachtung höherer transversaler Moden}
 
