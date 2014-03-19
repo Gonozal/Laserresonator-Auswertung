@@ -101,7 +101,6 @@ Zu erwarten war hierbei eine annährend konstante Leistung des Lasers bis einige
 
 Als Fehler für die jeweilige Spiegelposition wurden 1.5mm angenommen. Der Fehler für die aufgenommene Leistung wurde über die Fluktuation am Leistungsmessgerät abgeschätzt
 
-
 \begin{center}
 \begin{figure}[h]
 \begin{tikzpicture}
@@ -130,14 +129,14 @@ table[x index={0},y index={2}, x error index ={1}, y error index={3}] {messdaten
 \end{figure}
 \end{center}
 
-
 \FloatBarrier
 \section{Strahlbreite der Grundmode in Abh. von der Resonatorlänge}
 Zur Bestimmung der Strahlbreite der Grundmode in Abhängigkeit von der Resonatorlänge wurde für 10 verschiedene Resonatorlängen ein Querschnitt durch die $TEM_{00}$ Mode mit einer CCD-Kamera aufgenommen. Um nur die Grundmode anzuregen, wurde das Laserrohr verkippt, bis alle anderen Moden durch Beugungsverluste eliminiert waren.
 
 Hierbei ist zu erwarten, dass die Strahlbreite $w\left(\frac{L}{2}\right)$ mit zunehmender Resonatorlänge mit der Beziehung 
-$$w\left(\frac{L}{2}\right)=w_0\cdot\sqrt{1+\frac{L\lambda}{2w_{0}^{2}\pi}}$$
+$$w\left(\frac{L}{2}\right)=w_0\cdot\sqrt{1+\left({\frac{L\lambda}{2w_{0}^{2}\pi}}\right)^2}$$
 zunimmt.
+Die Strahlbreite ist hier definiert als die Breite, an dem die Intensität des Strahls auf $\exp(-2)$ der Maximalintensität abgefallen ist.
 
 \FloatBarrier
 \section{Longitudinale Modensruktur in Abh. von der Resonatorlänge}
@@ -176,8 +175,65 @@ wobei $H_k$ das k-te Hermitische Polynom ist.
 \chapter{Auswertung}
 \section{Ausgangsleistung des Lasers in Abh. von der Resonatorlänge}
 
+\newpage
 \section{Strahlbreite der Grundmode in Abh. von der Resonatorlänge}
+Die Strahlbreite wird aus den gemessenen Daten gewonnen, indem auf die gemessenen Punkte ein Gauß-fit gelegt wird. Die Strahlbreite wird dann über die Formel
+$w=2*\sqrt{4}\cdot\sigma$
+bestimmt. Dies führt zu folgenden experimentellen und erwarteten Werten für die Strahlbreite in Abhängigkeit der Resonatorlänge:
+\begin{center}
+    \begin{tabular}{ | l | l | l | p{2cm} |}
+    \hline
+    $L$ in cm & $w_x\left(\frac{L}{2}\right)$ in mm & $w_y\left(\frac{L}{2}\right)$ in mm & $w_{lit}$ in mm \\ \hline
+    25 & 0,4924 & 0,4798 & 0\\ \hline
+    32 & 0,7677 & 0,7491 & 0\\ \hline
+    39 & 0,6776 & 0,6703 & 0\\ \hline
+    46 & 0,5173 & 0,5728 & 0\\ \hline
+    53 & 0,6358 & 0,6383 & 0\\ \hline
+    60 & 0,6777 & 0,6899 & 0\\ \hline
+    67 & 0,7957 & 0,7758 & 0\\ \hline
+    74 & 0,8592 & 0,8857 & 0\\ \hline
+    81 & 0,9856 & 1,0212 & 0\\ \hline
+    88 & 1,4031 & 1,5161 & 0\\ \hline
+    \end{tabular}
+\end{center}
 
+\begin{center}
+\begin{figure}[h]
+\begin{tikzpicture}
+\begin{axis}[
+    title={Strahlbreiten in Abhängigkeit der Resonatorlänge},
+    xlabel=Resonatorlänge in cm,
+    ylabel=Strahlbreite in mm,
+    width=0.9\textwidth,
+    height=10cm,
+    xmin=20,
+    xmax=92,
+    grid=both,
+    ymin=0,
+    ymax=1.55,
+    tick align=outside,
+    tickpos=left,
+    minor x tick num=3,
+    minor y tick num=4,
+    minor grid style={dotted,thin}
+]
+\addplot[smooth, red, mark=x, mark size=2pt] coordinates {
+  (25, 0.4924) (32, 0.7677) (39, 0.6776) (46, 0.5173)
+  (53, 0.6358) (60, 0.6777) (67, 0.7957) (74, 0.8592)
+  (81, 0.9856) (88, 1.4031)
+};
+\addplot[smooth, blue, mark=x, mark size=2pt] coordinates {
+  (25, 0.4798) (32, 0.7491) (39, 0.6703) (46, 0.5728)
+  (53, 0.6383) (60, 0.6899) (67, 0.7758) (74, 0.8857)
+  (81, 1.0212) (88, 1.5161)
+};
+\addplot[green, densely dashed, mark size=0.0pt, samples=20, domain=20:92]{0.0005*sqrt(1+((x/2)/(4.96459*10^6*0.0005^2))^2)*100};
+\end{axis}
+\end{tikzpicture}
+\captionof{figure}{Strahlbreite als horizontaler und vertikaler Schnitt in Abhängigkeit von der Resonatorlänge.}
+\end{figure}
+\end{center}
+\FloatBarrier
 \section{Longitudinale Modensruktur in Abh. von der Resonatorlänge}
 
 \section{Verstärkungsbandbreite des HeNe-Lasers}
