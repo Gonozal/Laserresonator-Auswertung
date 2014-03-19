@@ -87,7 +87,8 @@
 %ANFANG INHALT
 
 \chapter{Einleitung}
-
+Ziel dieses Versuchs zum Laserresonator ist die Erarbeitung eines tieferen Verständnisses über die physikalischen Hintergründe, die das erzeugen eines Lasers ermöglichen.
+Wir versuchen experimentell einen Zusammenhang zwischen Länge und Intensität des Laserresonators herzustellen und untersuchen die Zusammensetzung des Laserlichtes aus longitudinalen und transversalen Moden im Resonator. Weiterhin versuchen wir zu zeigen, dass der Laserstrahl im Resonator der Gaußschen strahlenoptik gehorscht und nicht durch die einfachere geometrische Optik beschrieben werden kann.
 \chapter{Grundlagen}
 \section{Laserprinzip}
 Die Grundvorraussetzung für jeden Laser ist die Besetzungsinversion. Dazu müssen sich für zwei Energieniveaus im Lasermedium, zwischen denen ein Übergang durch Emission von Photonen erlaubt ist, im energetischeren Niveau mehr Atome befinden als im weniger energetischen. Nur wenn diese Voraussetzung erfüllt ist, können spontan emmitierte Photonen mehr Emission als Absorption anregen, da beide vorgänge proportional zur Anzahl der Atome in den zugehörigen Energieniveaus sind.
@@ -123,8 +124,12 @@ Natürlich läuft der Laser nicht auf allen Frequenzen $\nu_n$, sondern nur auf 
 
 \section{Resonatortheorie}
 
-\section{Gefahren durch Laserstrahlung}
+\section{Gefahren durch Laserstrahlung und Vorsichtsmaßnahmen}
+Bei dem in diesem Versuch vorliegenden HeNe Laser mit einigen mW Leistung im roten Spektralbereich sind die potentiellen Gefahren durch Laserstrahlung überschaubar. Vor allem muss hier darauf geachtet werden, dass der Laser nicht in ein Auge gelangt. Aus diesem Grund ist bei eingeschaltetem Laser immer eine Schutzbrille zu Tragen und der Kopf ist nie auf Höhe des Lasers zu halten. Auch sollte darauf geachtet werden, dass Reflexe des Lasers wenn möglich auf die Laserapparatur selbst zurückgelengt werden und vor allem nicht auf einen Eingang zeigen, da sonst außenstehende ohne Schutzbrille gefährdet werden können.
 
+Bei Lasern mit höherer Intensität ist zudem der Kontakt mit dem Körper zu vermeiden, da ein Laser nicht nur oberflächliche Verbrennungen, sondern im Falle eines UV-Lasers auch Hautkrebs und im Falle eines IR-Lasers schmerzlose und deswegen schwer zu erkennende Verbrennungen im Unterhautgewebe verursachen können. Zur Sichtbarmachung von Lasern sollte deswegen nie die nackte Haut sondern eine nicht reflektierende Oberfläche (beispielsweise ein Schirm, der die verwende Laserleistung aushält) verwendet werden.
+
+Abgesehen von den genannte Personenschäden sind bei nicht sachgemäßer Handlung von Lasern mit hoher Intensität auch Schäden am Versuchsaufbau möglich. Verschmutzte Spiegel oder Fenster des Lasermediums können zu extremer Hitzeentwicklung an jeweiligen Material und letztendlich zu dessen Ermattung oder gar Zerstörung führen.
 \chapter{Durchführung}
 \section{Ausgangsleistung des Lasers in Abh. von der Resonatorlänge}
 Zur Bestimmung der Stabilitätsgrenze des Resonators wurde die Ausgangsleistung für 11 Resonatorlängen aufgenommen, wobei eine Resonatorlänge innerhalb von 2 cm der errechneten Stabilitätsgrenze befand.
@@ -863,7 +868,7 @@ Zur Auswertung wird versucht, durch Anpassung der Parameter \(\sigma\) und \(\mu
 										xlabel=Pixel,
 										ylabel=Intensität,
 										width=0.9\textwidth,
-										height=5.5cm,
+										height=6cm,
 										xmin=1,
 										xmax=750,
 										grid=both,
