@@ -181,19 +181,19 @@ Die Strahlbreite wird aus den gemessenen Daten gewonnen, indem auf die gemessene
 $w=2*\sqrt{4}\cdot\sigma$
 bestimmt. Dies führt zu folgenden experimentellen und erwarteten Werten für die Strahlbreite in Abhängigkeit der Resonatorlänge:
 \begin{center}
-    \begin{tabular}{ | l | l | l | p{2cm} |}
+    \begin{tabular}{ | l | l | l | l | p{4cm} |}
     \hline
-    $L$ in cm & $w_x\left(\frac{L}{2}\right)$ in mm & $w_y\left(\frac{L}{2}\right)$ in mm & $w_{lit}$ in mm \\ \hline
-    25 & 0,4924 & 0,4798 & 0\\ \hline
-    32 & 0,7677 & 0,7491 & 0\\ \hline
-    39 & 0,6776 & 0,6703 & 0\\ \hline
-    46 & 0,5173 & 0,5728 & 0\\ \hline
-    53 & 0,6358 & 0,6383 & 0\\ \hline
-    60 & 0,6777 & 0,6899 & 0\\ \hline
-    67 & 0,7957 & 0,7758 & 0\\ \hline
-    74 & 0,8592 & 0,8857 & 0\\ \hline
-    81 & 0,9856 & 1,0212 & 0\\ \hline
-    88 & 1,4031 & 1,5161 & 0\\ \hline
+    $L$ in cm & $w_x\left(\frac{L}{2}\right)$ in mm & $w_y\left(\frac{L}{2}\right)$ in mm & Differenz x und y in \% & $w_{lit}$ in mm \\ \hline
+    25 & 0,4924 & 0,4798 & 2,55 & 0,4742 \\ \hline
+    32 & 0,7677 & 0,7491 & 2,42 & 0,5190 \\ \hline
+    39 & 0,6776 & 0,6703 & 1,08 & 0,5632 \\ \hline
+    46 & 0,5173 & 0,5728 & 9,69 & 0,6089 \\ \hline
+    53 & 0,6358 & 0,6383 & 0,39 & 0,6588 \\ \hline
+    60 & 0,6777 & 0,6899 & 1,77 & 0,7161 \\ \hline
+    67 & 0,7957 & 0,7758 & 2,50 & 0,7868 \\ \hline
+    74 & 0,8592 & 0,8857 & 2,99 & 0,8832 \\ \hline
+    81 & 0,9856 & 1,0212 & 3,49 & 1,0431 \\ \hline
+    88 & 1,4031 & 1,5161 & 7,45 & 1,5411 \\ \hline
     \end{tabular}
 \end{center}
 
@@ -215,25 +215,44 @@ bestimmt. Dies führt zu folgenden experimentellen und erwarteten Werten für di
     tickpos=left,
     minor x tick num=3,
     minor y tick num=4,
-    minor grid style={dotted,thin}
+    minor grid style={dotted,thin},
+    legend pos=north west
 ]
-\addplot[smooth, red, mark=x, mark size=2pt] coordinates {
+\addplot[smooth, red, thick, mark=x, mark size=2pt] coordinates {
   (25, 0.4924) (32, 0.7677) (39, 0.6776) (46, 0.5173)
   (53, 0.6358) (60, 0.6777) (67, 0.7957) (74, 0.8592)
   (81, 0.9856) (88, 1.4031)
 };
-\addplot[smooth, blue, mark=x, mark size=2pt] coordinates {
+\addlegendentry{$w_x$}
+
+\addplot[smooth, blue, thick, mark=x, mark size=2pt] coordinates {
   (25, 0.4798) (32, 0.7491) (39, 0.6703) (46, 0.5728)
   (53, 0.6383) (60, 0.6899) (67, 0.7758) (74, 0.8857)
   (81, 1.0212) (88, 1.5161)
 };
-\addplot[green, densely dashed, mark size=0.0pt, samples=20, domain=20:92]{0.0005*sqrt(1+((x/2)/(4.96459*10^6*0.0005^2))^2)*100};
+\addlegendentry{$w_y$}
+% \addplot[smooth, black, thick, mark size=0.0pt] coordinates{
+%   (25, 0.2371) (32, 0.2595) (39, 0.2816) (46, 0.3045)
+%   (53, 0.3294) (60, 0.3581) (67, 0.3934) (74, 0.4416)
+%   (81, 0.5215) (88, 0.7755)
+% };
+\addplot[smooth, black, thick, mark size=0.0pt] coordinates{
+  (25, 0.4742) (32, 0.2595*2) (39, 0.2816*2) (46, 0.3045*2)
+  (53, 0.3294*2) (60, 0.3581*2) (67, 0.3934*2) (74, 0.4416*2)
+  (81, 0.5215*2) (88, 0.7755*2)
+};
+\addlegendentry{$w_{lit}$}
 \end{axis}
 \end{tikzpicture}
-\captionof{figure}{Strahlbreite als horizontaler und vertikaler Schnitt in Abhängigkeit von der Resonatorlänge.}
+\captionof{figure}{
+  Strahlbreite als horizontaler und vertikaler Schnitt in Abhängigkeit von der Resonatorlänge.
+  Die Werte für $w_x$ und $w_y$ liegen sehr gut beieinander, was auf eine relativ gute Genauigkeit der gemessenen Daten schließen lässt.
+  Bis auf die Werte für 32cm und 39cm folgt der Strahlverlauf sehr gut dem theoretischen Wert.
+}
 \end{figure}
 \end{center}
 \FloatBarrier
+  
 \section{Longitudinale Modensruktur in Abh. von der Resonatorlänge}
 
 \section{Verstärkungsbandbreite des HeNe-Lasers}
