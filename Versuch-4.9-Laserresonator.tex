@@ -66,7 +66,7 @@
 
 \author{Manuel Kress, Sören Link}
 
-\settitlepicture{img/title.jpg}
+%\settitlepicture{img/title.jpg}
 
 \institution{Physikalisches Praktikum \\für Fortgeschrittene \\ Versuch 4.9}
 
@@ -133,6 +133,46 @@ Der Laser läuft also auf nur auf Frequenzen, welche sich im Resonator ausbilden
 
 Der dritte und letzte einschränkende Faktor für die verstärkten Frequenzen ist der Schwellenwert des Resonators. Das bedeutet, dass nur diese Frequenzen verstärkt werden, für die die Nettoverstärkung einer Lichtwellte bei einem Durchlaufen des Resonators größer als 1 ist. Klarerweise werden Frequenzen mit einer Nettoverstärkung kleiner 1 nicht Verstärkt sondern löschen sich bei mehreren Resonatorumläufen aus.
 
+\begin{figure}[tblr]
+\centering
+                \begin{tikzpicture}
+								\begin{axis}[
+										%xlabel=Pixel,
+										%ylabel=Intensität,
+										width=0.7\textwidth,
+										height=7cm,
+										xmin=-25,
+										xmax=25,
+										%grid=both,
+										ymin=0,
+										ymax=0.13,
+										%tick align=outside,
+										%tickpos=left,
+										%minor x tick num=3,
+										%minor y tick num=4,
+										%minor grid style={dotted,thin},
+										%legend pos=north east,
+										yticklabels={,,},
+										%ylabel near ticks,
+								]
+								
+								
+								\addplot [smooth, green, domain=-25:25] {3.195*e^(-(x^2/200))/(10 *sqrt(2 * 3.1415))};
+
+								\addplot[smooth, blue, domain=-25:25] {0.04};
+								
+								\addplot [smooth, red, samples=1000 , domain=-25:25 ] {(3.1831/(1 + 100 *(-23 + x)^2) + 3.1831/( 1 + 100 *(-20 + x)^2) + 3.1831/(1 + 100 *(-17 + x)^2) + 3.1831/( 1 + 100 *(-14 + x)^2)+ 3.1831/( 1 + 100 *(-11 + x)^2) + 3.1831/(1 + 100 *(1 + x)^2) + 3.1831/( 1 + 100 *(-8 + x)^2) + 3.1831/(1 + 100 *(-5 + x)^2) + 3.1831/( 1 + 100 *(-2 + x)^2) + 3.1831/( 1 + 100 *(4 + x)^2) + 3.1831/(1 + 100 *(7 + x)^2) + 3.1831/( 1 + 100 *(10 + x)^2) + 3.1831/(1 + 100 *(13 + x)^2) + 3.1831/( 1 + 100* (16 + x)^2) + 3.1831/(1 + 100 *(19 + x)^2) + 3.1831/( 1 + 100 *(22 + x)^2) + 3.1831/(1 + 100 *(25 + x)^2))*e^(-(x^2/200))/(10 *sqrt(2 * 3.1415))};
+								
+								
+								\addplot [smooth, red, very thick, samples=1000 , domain=-15:15 ] {(3.1831/(1 + 100 *(-23 + x)^2) + 3.1831/( 1 + 100 *(-20 + x)^2) + 3.1831/(1 + 100 *(-17 + x)^2) + 3.1831/( 1 + 100 *(-14 + x)^2)+ 3.1831/( 1 + 100 *(-11 + x)^2) + 3.1831/(1 + 100 *(1 + x)^2) + 3.1831/( 1 + 100 *(-8 + x)^2) + 3.1831/(1 + 100 *(-5 + x)^2) + 3.1831/( 1 + 100 *(-2 + x)^2) + 3.1831/( 1 + 100 *(4 + x)^2) + 3.1831/(1 + 100 *(7 + x)^2) + 3.1831/( 1 + 100 *(10 + x)^2) + 3.1831/(1 + 100 *(13 + x)^2) + 3.1831/( 1 + 100* (16 + x)^2) + 3.1831/(1 + 100 *(19 + x)^2) + 3.1831/( 1 + 100 *(22 + x)^2) + 3.1831/(1 + 100 *(25 + x)^2))*e^(-(x^2/200))/(10 *sqrt(2 * 3.1415))};
+								
+								\end{axis}
+								\end{tikzpicture}
+	\caption{
+		Zusammensetzung der Verstärkungsbandbreite aus Dopplerverbreiterung (grün), Lorentz-Linien des Resonators (rot) und Laserschwelle (blau). Verstärkt werden die fett roten Frequenzen
+	}
+\end{figure}
+
 
 \section{Resonatortheorie}
 Im einfachsten Falle besteht (wie oben geschrieben) ein Resonator aus zwei unendlich ausgedehnten, planparallelen, perfekten Spiegeln im Abstand L. Einen solchen Resonator nennt man auch Fabry-Pérot-Resonator. Die Lösung der Maxwell-Gleichungen für diesen Fall ergibt stehende Wellen mit den Frequenzen $\nu_n$ für die Feldverteilung innerhalb des Resonators, mit der Randbedingung, dass das Feld an den Spiegelpositionen verschwindet. Das Spektrum eines solchen Resonators bestünde also aus scharfen Linen.
@@ -144,7 +184,19 @@ Für einen Laser verwendet man aber aus verschiedenen Gründen keine ebenen Spie
 
 Zur Bestimmung der elektromagnetischen Feldverteilung innerhalb eines solchen sphärischen Resonators nimmt man als Randbedinungen der Maxwell-Gleichungen an, dass die Krümmungen der Wellenfronten an der Position der Spiegel mit den Radien der Resonatorspiegel übereinstimmen. Die Lösung der Maxwell-Gleichungen ergibt dann (unter anderem) den sogenannten Gauß-Strahl.
 
-Der Gauß-Strahl hat an der Position \(z=0\) eine Strahltaille und die Wellenfronten an dieser Postition sind ebenen, während in großer Entfernung die Wellenfront sich der einer Kugelwelle annähert und der Strahl breiter wird. Die Abbildung verdeutlicht den Strahlverlauf.
+Der Gauß-Strahl hat an der Position \(z=0\) eine Strahltaille und die Wellenfronten an dieser Postition sind ebenen, während in großer Entfernung die Wellenfront sich der einer Kugelwelle annähert und der Strahl breiter wird. Die Abbildungen verdeutlichen den Strahlverlauf.
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[width=0.5\textwidth]{img/gauss_res.png}
+	\caption{Gauß-Strahl als Lösung der Maxwell-Gleichungen in einem sphärischen Resonator}
+\end{figure}
+\begin{figure}[h]
+	\centering
+		\includegraphics[width=0.5\textwidth]{img/gauss_param.png}
+	\caption{Die typischen Parameter eines Gauß-Strahles}
+\end{figure}
+\FloatBarrier
 
 Das transversale Profil eines solchen Gauß-Strahles lässt sich über den Strahlradius $w$ beschreiben.
 $$w(z) = w_0 \sqrt{1+\left(\frac{z}{z_0}\right)^2}$$
@@ -157,6 +209,42 @@ Der Gauß-Strahl ist nicht die einzige Lösung der Wellenfunktion mit den geford
 Der transversale Intensitätsverlauf ist gegeben durch
 $$I(x,y, z) = I_0 \left(\frac{w_0}{w(z)}\right)^2 \cdot \exp\left(-\frac{2 x^2}{w(z)^2}\right) H_n\left(\frac{\sqrt{2}x}{w(z)}\right)^2 \cdot \exp\left(-\frac{2 y^2}{w(z)^2}\right) H_m\left(\frac{\sqrt{2}y}{w(z)}\right)^2$$
 Wobei $H_i$ das i-te Hermite-Polynom ist.
+
+Ein weiterer wichtiger Punkt von sphärischen Resonatoren ist deren Stabilität. Wann ein solcher resonator stabil ist, lässt sich Strahlengeometisch herleiten. Man führt dazu die sogenannten g-Parameter ein:
+$$g_1=1-\frac{L}{R_1}$$
+$$g_2=1-\frac{L}{R_2}$$
+$R_1$ und $R_2$ geben hier die Krümmungsradien der beiden Spiegel an. Stabil ist der Resonator dann, wenn folgende Stabilitätsbedinung erfüllt ist:
+$$0\leq g_1 \cdot g_2 \leq 1$$
+
+
+\begin{figure}[h]
+\centering
+                \begin{tikzpicture}
+								\begin{axis}[
+								title={Stabilitätsdiagramm},
+								xmin=-4,
+								xmax=4,
+								ymin=-4,
+								ymax=4,
+								axis y line=center,
+								axis x line=center,
+								%restrict y to domain=-20:20,
+								samples=100,
+								xlabel=$g_1$,
+								ylabel=$g_2$,
+								]
+								
+								
+								\addplot[fill,opacity=0.3,cyan,domain=-5:5,smooth] % smooth breaks \closedcycle
+  {1/x} \closedcycle;
+								\addplot[smooth, dashed, domain=-5:5] {x};
+								
+								\end{axis}
+								\end{tikzpicture}
+	\caption{
+		Der blau unterlegte Bereich ist stabil. Auf der diagonalen Linie liegen alle symmetrischen Resonatoren. 
+	}
+\end{figure}
 
 
 
@@ -960,6 +1048,8 @@ Letzten Endes konnten die Modellvorstellungen für alle untersuchten Zusammenän
   \bibitem{HeNeNiveaus} \verb|http://lp.uni-goettingen.de/get/image/5074|
   \bibitem{TransModeIntensity} \verb|http://en.wikipedia.org/w/index.php?title=Transverse_mode&oldid=579051975|
   \bibitem{GefahrenLaser} \verb|http://de.wikipedia.org/w/index.php?title=Laser&oldid=128632514#Gefahren|
+  \bibitem{Resonatortheorie} \verb|http://www.physik.uni-kl.de/fileadmin/beigang/Vorlesungen/WS_09_10/LP_WS_09_10_Zusammenfassung_Resonatoren.pdf|
+  \bibitem{Gaussstrahl} \verb|http://de.wikipedia.org/w/index.php?title=Gau\%C3\%9F-Strahl&oldid=126980393|
 \end{thebibliography}
 
 \cleardoublepage{}
