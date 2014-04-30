@@ -88,7 +88,7 @@
 
 \chapter{Einleitung}
 Ziel dieses Versuchs zum Laserresonator ist die Erarbeitung eines tieferen Verständnisses über die physikalischen Hintergründe, die das erzeugen eines Lasers ermöglichen.
-Wir versuchen experimentell einen Zusammenhang zwischen Länge und Intensität des Laserresonators herzustellen und untersuchen die Zusammensetzung des Laserlichtes aus longitudinalen und transversalen Moden im Resonator. Weiterhin versuchen wir zu zeigen, dass der Laserstrahl im Resonator der Gaußschen strahlenoptik gehorscht und nicht durch die einfachere geometrische Optik beschrieben werden kann.
+Wir stellen experimentell einen Zusammenhang zwischen Länge und Intensität des Laserresonators her und untersuchen die Zusammensetzung des Laserlichtes aus longitudinalen und transversalen Moden im Resonator. Weiterhin zeigen wir, dass der Laserstrahl im Resonator der Gaußschen strahlenoptik gehorcht und nicht durch die einfachere geometrische Optik beschrieben werden kann.
 \chapter{Grundlagen}
 \section{Laserprinzip}
 Die Grundvorraussetzung für jeden Laser ist die Besetzungsinversion. Dazu müssen sich für zwei Energieniveaus im Lasermedium, zwischen denen ein Übergang durch Emission von Photonen erlaubt ist, im energetischeren Niveau mehr Atome befinden als im weniger energetischen. Nur wenn diese Voraussetzung erfüllt ist, können spontan emmitierte Photonen mehr Emission als Absorption anregen, da beide Vorgänge proportional zur Anzahl der Atome in den zugehörigen Energieniveaus sind.
@@ -137,8 +137,8 @@ Der dritte und letzte einschränkende Faktor für die verstärkten Frequenzen is
 \centering
                 \begin{tikzpicture}
 								\begin{axis}[
-										%xlabel=Pixel,
-										%ylabel=Intensität,
+                    xlabel={$\nu$},
+										ylabel=Verstärkung,
 										width=0.7\textwidth,
 										height=7cm,
 										xmin=-25,
@@ -161,10 +161,10 @@ Der dritte und letzte einschränkende Faktor für die verstärkten Frequenzen is
 
 								\addplot[smooth, blue, domain=-25:25] {0.04};
 								
-								\addplot [smooth, red, samples=100 , domain=-25:25 ] {(3.1831/(1 + 100 *(-23 + x)^2) + 3.1831/( 1 + 100 *(-20 + x)^2) + 3.1831/(1 + 100 *(-17 + x)^2) + 3.1831/( 1 + 100 *(-14 + x)^2)+ 3.1831/( 1 + 100 *(-11 + x)^2) + 3.1831/(1 + 100 *(1 + x)^2) + 3.1831/( 1 + 100 *(-8 + x)^2) + 3.1831/(1 + 100 *(-5 + x)^2) + 3.1831/( 1 + 100 *(-2 + x)^2) + 3.1831/( 1 + 100 *(4 + x)^2) + 3.1831/(1 + 100 *(7 + x)^2) + 3.1831/( 1 + 100 *(10 + x)^2) + 3.1831/(1 + 100 *(13 + x)^2) + 3.1831/( 1 + 100* (16 + x)^2) + 3.1831/(1 + 100 *(19 + x)^2) + 3.1831/( 1 + 100 *(22 + x)^2) + 3.1831/(1 + 100 *(25 + x)^2))*e^(-(x^2/200))/(10 *sqrt(2 * 3.1415))};
+								\addplot [smooth, red, samples=750 , domain=-25:25 ] {(3.1831/(1 + 100 *(-23 + x)^2) + 3.1831/( 1 + 100 *(-20 + x)^2) + 3.1831/(1 + 100 *(-17 + x)^2) + 3.1831/( 1 + 100 *(-14 + x)^2)+ 3.1831/( 1 + 100 *(-11 + x)^2) + 3.1831/(1 + 100 *(1 + x)^2) + 3.1831/( 1 + 100 *(-8 + x)^2) + 3.1831/(1 + 100 *(-5 + x)^2) + 3.1831/( 1 + 100 *(-2 + x)^2) + 3.1831/( 1 + 100 *(4 + x)^2) + 3.1831/(1 + 100 *(7 + x)^2) + 3.1831/( 1 + 100 *(10 + x)^2) + 3.1831/(1 + 100 *(13 + x)^2) + 3.1831/( 1 + 100* (16 + x)^2) + 3.1831/(1 + 100 *(19 + x)^2) + 3.1831/( 1 + 100 *(22 + x)^2) + 3.1831/(1 + 100 *(25 + x)^2))*e^(-(x^2/200))/(10 *sqrt(2 * 3.1415))};
 								
 								
-								\addplot [smooth, red, very thick, samples=50 , domain=-15:15 ] {(3.1831/(1 + 100 *(-23 + x)^2) + 3.1831/( 1 + 100 *(-20 + x)^2) + 3.1831/(1 + 100 *(-17 + x)^2) + 3.1831/( 1 + 100 *(-14 + x)^2)+ 3.1831/( 1 + 100 *(-11 + x)^2) + 3.1831/(1 + 100 *(1 + x)^2) + 3.1831/( 1 + 100 *(-8 + x)^2) + 3.1831/(1 + 100 *(-5 + x)^2) + 3.1831/( 1 + 100 *(-2 + x)^2) + 3.1831/( 1 + 100 *(4 + x)^2) + 3.1831/(1 + 100 *(7 + x)^2) + 3.1831/( 1 + 100 *(10 + x)^2) + 3.1831/(1 + 100 *(13 + x)^2) + 3.1831/( 1 + 100* (16 + x)^2) + 3.1831/(1 + 100 *(19 + x)^2) + 3.1831/( 1 + 100 *(22 + x)^2) + 3.1831/(1 + 100 *(25 + x)^2))*e^(-(x^2/200))/(10 *sqrt(2 * 3.1415))};
+								\addplot [smooth, red, very thick, samples=750 , domain=-15:15 ] {(3.1831/(1 + 100 *(-23 + x)^2) + 3.1831/( 1 + 100 *(-20 + x)^2) + 3.1831/(1 + 100 *(-17 + x)^2) + 3.1831/( 1 + 100 *(-14 + x)^2)+ 3.1831/( 1 + 100 *(-11 + x)^2) + 3.1831/(1 + 100 *(1 + x)^2) + 3.1831/( 1 + 100 *(-8 + x)^2) + 3.1831/(1 + 100 *(-5 + x)^2) + 3.1831/( 1 + 100 *(-2 + x)^2) + 3.1831/( 1 + 100 *(4 + x)^2) + 3.1831/(1 + 100 *(7 + x)^2) + 3.1831/( 1 + 100 *(10 + x)^2) + 3.1831/(1 + 100 *(13 + x)^2) + 3.1831/( 1 + 100* (16 + x)^2) + 3.1831/(1 + 100 *(19 + x)^2) + 3.1831/( 1 + 100 *(22 + x)^2) + 3.1831/(1 + 100 *(25 + x)^2))*e^(-(x^2/200))/(10 *sqrt(2 * 3.1415))};
 								
 								\end{axis}
 								\end{tikzpicture}
@@ -530,7 +530,9 @@ table[x index={0},y index={2}, x error index ={1}, y error index={3}] {messdaten
 
 Der Fit der Geraden durch die letzten beiden Messpunkte liefert $x=92,6916$ als Stabilitätsgrenze. Auf Grund fehlende weiterer Messpunkte im relevanten Intervall ist eine genaue Bestimmung und eine Fehlerangabe des errechneten Werts schwierig, hier würde eine weiterer Messwert bei z.B. 88.5cm Resonatorlänge helfen.
 \section{Strahlbreite der Grundmode in Abhängigkeit von der Resonatorlänge}
-Die Strahlbreite wird aus den gemessenen Daten gewonnen, indem auf die gemessenen Punkte ein Gauß-fit gelegt wird. Die Strahlbreite wird dann über die Formel
+Die Strahlbreite wird aus den gemessenen Daten gewonnen, indem auf die gemessenen Punkte ein Gauß-fit 
+$\frac{k}{\sigma\sqrt{2\pi}} \mdot {e}^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^{2}}$
+gelegt wird. Die Strahlbreite wird dann über die Formel
 $w=2*\sqrt{4}\cdot\sigma$
 bestimmt. Dies führt zu folgenden experimentellen und erwarteten Werten für die Strahlbreite in Abhängigkeit der Resonatorlänge:
 \begin{center}
@@ -618,20 +620,20 @@ $$8,02480ms \pm 0,00015 \equalhat 10GHz$$
 \FloatBarrier
 
 \begin{center}
-  \begin{tabular}{ | p{2.2cm} | p{2.7cm} | p{2.2cm} | p{2.9cm} | p{5.5cm} | }
+  \begin{tabular}{ | p{2.0cm} | p{2.6cm} | p{2.8cm} | p{3.0cm} | p{4cm} | }
     \hline
     % TODO: Fehlerrechnung theoretischer Wert
-    Resonator- länge in cm & Modenabstand in µs & Abstand in MHz & Theoretischer Abstand in MHz & Abweichung Gemessener Abstand vom Theoriewert in \% \\ \hline
-    25 & 477,43 ± 0,09 & 594,94 ± 0,11 & 600,000 & 0,85 \\ \hline
-    32 & 382,12 ± 0,37 & 476,17 ± 0,46 & 468,750 & 1,56 \\ \hline
-    39 & 309,39 ± 0,19 & 385,54 ± 0,24 & 384,615 & 0,24 \\ \hline
-    46 & 260,89 ± 0,07 & 325,10 ± 0,09 & 326,087 & 0,30 \\ \hline
-    53 & 226,22 ± 0,10 & 281,90 ± 0,12 & 283,018 & 0,39 \\ \hline
-    60 & 200,68 ± 0,10 & 250,07 ± 0,12 & 250,000 & 0,03 \\ \hline
-    67 & 180,45 ± 0,20 & 224,87 ± 0,25 & 223,881 & 0,44 \\ \hline
-    74 & 163,46 ± 0,15 & 203,69 ± 0,19 & 202,703 & 0,49 \\ \hline
-    81 & 145,15 ± 0,19 & 180,88 ± 0,24 & 185,185 & 2,38 \\ \hline
-    88 & 137,48 ± 0,14 & 171,32 ± 0,17 & 170,454 & 0,50 \\ \hline
+    Resonator- länge in cm & Modenabstand in µs & Abstand in MHz & Theoretischer Abstand in MHz & Abweichung Messwert vom Theoriewert in \% \\ \hline
+    25 & 477,43 ± 0,09 & 594,94 ± 0,11 & 600,00 ± 5,28 & 0,85 \\ \hline
+    32 & 382,12 ± 0,37 & 476,17 ± 0,46 & 468,75 ± 3,22 & 1,56 \\ \hline
+    39 & 309,39 ± 0,19 & 385,54 ± 0,24 & 384,62 ± 2,17 & 0,24 \\ \hline
+    46 & 260,89 ± 0,07 & 325,10 ± 0,09 & 326,09 ± 1,56 & 0,30 \\ \hline
+    53 & 226,22 ± 0,10 & 281,90 ± 0,12 & 283,02 ± 1,17 & 0,39 \\ \hline
+    60 & 200,68 ± 0,10 & 250,07 ± 0,12 & 250,00 ± 0,92 & 0,03 \\ \hline
+    67 & 180,45 ± 0,20 & 224,87 ± 0,25 & 223,88 ± 0,73 & 0,44 \\ \hline
+    74 & 163,46 ± 0,15 & 203,69 ± 0,19 & 202,70 ± 0,60 & 0,49 \\ \hline
+    81 & 145,15 ± 0,19 & 180,88 ± 0,24 & 185,19 ± 0,50 & 2,38 \\ \hline
+    88 & 137,48 ± 0,14 & 171,32 ± 0,17 & 170,45 ± 0,43 & 0,50 \\ \hline
   \end{tabular}
 \end{center}
 \FloatBarrier
@@ -672,7 +674,7 @@ $$8,02480ms \pm 0,00015 \equalhat 10GHz$$
 \end{axis}
 \end{tikzpicture}
 \captionof{figure}{
-  Longitudinaler Modenabstand in Abhängigkeit der Resonatorlänger. Die gute Übereinstimmung der gemessenen Daten mit dem Modell $\Delta\nu = \frac{c}{2L}$ ist hier sehr schön zu sehen. Es gibt nur wenige Messpunkte, die überhaupt optisch von den theoretischen Daten zu unterscheiden sind.
+  Longitudinaler Modenabstand in Abhängigkeit der Resonatorlänger. Die gute Übereinstimmung der gemessenen Daten mit dem Modell $\Delta\nu = \frac{c}{2L}$ ist hier sehr schön zu sehen. Es gibt nur wenige Messpunkte, die überhaupt optisch von den theoretischen Daten zu unterscheiden sind. Fehlerbalken für theoretischen und experimentellen Wert sind zu klein um im Graphen sichtbar zu sein.
 }
 \end{figure}
 \end{center}
