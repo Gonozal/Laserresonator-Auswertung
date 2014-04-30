@@ -184,7 +184,8 @@ Für einen Laser verwendet man aber aus verschiedenen Gründen keine ebenen Spie
 
 Zur Bestimmung der elektromagnetischen Feldverteilung innerhalb eines solchen sphärischen Resonators nimmt man als Randbedinungen der Maxwell-Gleichungen an, dass die Krümmungen der Wellenfronten an der Position der Spiegel mit den Radien der Resonatorspiegel übereinstimmen. Die Lösung der Maxwell-Gleichungen ergibt dann (unter anderem) den sogenannten Gauß-Strahl.
 
-Der Gauß-Strahl hat an der Position \(z=0\) eine Strahltaille und die Wellenfronten an dieser Postition sind ebenen, während in großer Entfernung die Wellenfront sich der einer Kugelwelle annähert und der Strahl breiter wird. Die Abbildungen verdeutlichen den Strahlverlauf.
+Der Gauß-Strahl hat an der Position \(z=0\) eine Strahltaille und die Wellenfronten an dieser Postition sind ebenen, während in großer Entfernung die Wellenfront sich der einer Kugelwelle annähert und der Strahl breiter wird. Die Abbildungen
+\cite{Resonatortheorie}\cite{GSParamater} verdeutlichen den Strahlverlauf.
 
 \begin{figure}[h]
 	\centering
@@ -307,7 +308,8 @@ Während bei der zweiten Messung wie zu erwarten ein deutlicher Intensitätsabfa
 Zur Beobachtung höhrer transversaler Moden wurde ein Drahtkreuz in den Laserresonator eingebracht, um die $TEM_{00}$-Mode zu unterdrücken. Dies erlaubte es, durch gezielte Positionierung des Drahtkreuzes, höhere Moden anzuregen. Die so angeregten höheren Moden wurden wie in 3.2 mit einer CCD Kamera aufgenommen. Um Rauschen zu unterdrücken wurde dabei über etwa eine Sekunde an Messdaten gemittelt. Da höhere Moden im Gegensatz zut $TEM_{00}$ Mode nicht rotationssymmetrisch sind, mussten die so aufgenommenen Messdaten noch rotiert werden, um einen Modenverlauf symmetrisch zu Paralellen der x- und y-Achsen zu erreichen.
 
 Für die eindimensionale Intensitätsverteilung der Moden ist folgender Zusammenhang zu erwarten
-$$I_{n}(x) = I_0 \cdot  H_y \left( \frac{x}{w} \right)^2 \exp \left( \frac{-x^2}{w^2} \right)  $$
+ 
+$$I_{n}(x) = I_0 \cdot  H_y \left( \frac{\sqrt{2}x}{w} \right)^2 \exp \left( \frac{-2x^2}{w^2} \right)  $$
 \cite{TransModeIntensity}
 wobei $H_k$ das k-te Hermitische Polynom ist.
 
@@ -711,9 +713,9 @@ Unter der Annahme, dass die Verstärkungsbandbreite primär durch gaußförmige 
 
 Die eindimensionale Intensitätsverteilung der höheren TEM-Moden folgt (wie bereits oben erwähnt) folgendem Verlauf:
 
-$$I_{n}(x) \propto H_n \left( \frac{x-\mu}{\sigma} \right)^2 \exp \left( \frac{-(x-\mu)^2}{\sigma^2} \right)  $$
+$$I_{n}(x) \propto H_n^2 \left( \frac{\sqrt{2}(x-\mu)}{w} \right) \exp \left( \frac{- 2 (x-\mu)^2}{w^2} \right)  $$
 
-Zur Auswertung wird versucht, durch Anpassung der Parameter \(\sigma\) und \(\mu\) (\(\mu\) erzeugt eine horizontale Verschiebung der Verteilung) einen möglichst genauen Fit der erwarteten Intensitätsverteilung über die Messdaten zu legen. Die Amplituden der Fits werden jeweils entsprechend angepasst, sodass sie in etwa zu denen der Messdaten passen.
+Zur Auswertung wird versucht, durch Anpassung der Parameter $w$ und \(\mu\) (\(\mu\) erzeugt eine horizontale Verschiebung der Verteilung) einen möglichst genauen Fit der erwarteten Intensitätsverteilung über die Messdaten zu legen. Die Amplituden der Fits werden jeweils entsprechend angepasst, sodass sie in etwa zu denen der Messdaten passen. Die Einheit von $w$ ist hier $[w] = \mathrm{Pixel}$.
 
 \begin{figure}[h]
         \centering
@@ -743,12 +745,12 @@ Zur Auswertung wird versucht, durch Anpassung der Parameter \(\sigma\) und \(\mu
 								\addlegendentry{$I_x$}
 								
 								\addplot [smooth, red, thick, domain=0:800, samples=100] {exp(-(x-421.674)^2/(77.7091^2))*1162.62*(-2+(4*(x-421.674)^2)/(77.7091^2))^2};
-								\addlegendentry{$Fit$}
+								\addlegendentry{Fit}
 
 								\end{axis}
 								\end{tikzpicture}
 								\caption{
-								\(\mu = 421,674\), \(\sigma = 77,7091\)
+								\(\mu = 421,674\), \(\sigma = 109,897\)
 								}
         \end{subfigure}%
         ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
@@ -780,12 +782,12 @@ Zur Auswertung wird versucht, durch Anpassung der Parameter \(\sigma\) und \(\mu
 								\addlegendentry{$I_y$}
 								
 								\addplot [smooth, red, thick, domain=0:800, samples=100] {exp(-(x-248.956)^2/(85.9621^2))*224.818*((8*(x-248.956)^3)/(85.9621^3) -(12*(x-248.956))/(85.9621))^2};
-								\addlegendentry{$Fit$}
+								\addlegendentry{Fit}
 
 								\end{axis}
 								\end{tikzpicture}
 								\caption{
-								\(\mu = 248,956\), \(\sigma = 85,9621\)
+								\(\mu = 248,956\), \(\sigma = 121,569\)
 								}
         \end{subfigure}
 	\captionof{figure}{
@@ -826,7 +828,7 @@ Zur Auswertung wird versucht, durch Anpassung der Parameter \(\sigma\) und \(\mu
 								\end{axis}
 								\end{tikzpicture}
 								\caption{
-								\(\mu = 442,400\), \(\sigma = 78,7475\)
+								\(\mu = 442,400\), \(\sigma = 111,366\)
 								}
         \end{subfigure}%
         ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
@@ -863,7 +865,7 @@ Zur Auswertung wird versucht, durch Anpassung der Parameter \(\sigma\) und \(\mu
 								\end{axis}
 								\end{tikzpicture}
 								\caption{
-								\(\mu = 244,328\), \(\sigma = 84,807\)
+								\(\mu = 244,328\), \(\sigma = 119,935\)
 								}
         \end{subfigure}
 	\captionof{figure}{
@@ -904,7 +906,7 @@ Zur Auswertung wird versucht, durch Anpassung der Parameter \(\sigma\) und \(\mu
 								\end{axis}
 								\end{tikzpicture}
 								\caption{
-								\(\mu = 440,895\), \(\sigma = 80,112\)
+								\(\mu = 440,895\), \(\sigma = 113,295\)
 								}
         \end{subfigure}%
         ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
@@ -941,7 +943,7 @@ Zur Auswertung wird versucht, durch Anpassung der Parameter \(\sigma\) und \(\mu
 								\end{axis}
 								\end{tikzpicture}
 								\caption{
-								\(\mu = 231,669\), \(\sigma = 84,4827\)
+								\(\mu = 231,669\), \(\sigma = 119,477\)
 								}
         \end{subfigure}
 	\captionof{figure}{
@@ -982,7 +984,7 @@ Zur Auswertung wird versucht, durch Anpassung der Parameter \(\sigma\) und \(\mu
 								\end{axis}
 								\end{tikzpicture}
 								\caption{
-								\(\mu = 419,064\), \(\sigma = 75,4268\)
+								\(\mu = 419,064\), \(\sigma = 106,670\)
 								}
         \end{subfigure}%
         ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
@@ -1019,7 +1021,7 @@ Zur Auswertung wird versucht, durch Anpassung der Parameter \(\sigma\) und \(\mu
 								\end{axis}
 								\end{tikzpicture}
 								\caption{
-								\(\mu = 252,043\), \(\sigma = 86,0702\)
+								\(\mu = 252,043\), \(\sigma = 121,722\)
 								}
         \end{subfigure}
 	\captionof{figure}{
@@ -1029,6 +1031,21 @@ Zur Auswertung wird versucht, durch Anpassung der Parameter \(\sigma\) und \(\mu
 \FloatBarrier
 Anhand der Graphen erkennt man deutlich, dass die gemessenen Intensitätsverteilungen immer sehr nahe bei den theoretischen Erwartungen liegen. Die geringen sichtbaren Abweichungen haben verschiedene Ursachen, so erzeugt zum Beispiel Schmutz auf dem CCD-Sensor Interferenzeffekte (deutlich sichtbare Ringe auf den Bildern der TEM-Moden) und dadurch Verfälschungen der Intensitätsverteilungen. Auch Schwankungen der Laserintensität während des Messzeitraumes von 1 Sekunde erzeugen Abweichungen. Zusammenfassend kann man aber sagen, dass alle Ungenauigkeiten vertretbar sind und die qualitativen theoretischen Erwartungen sehr gut in der Praxis bestätigt wurden.
 
+\paragraph{Vergleich der Strahlbreite mit der Grundmode}
+
+\begin{center}
+	\begin{tabular}{c|c|c}
+        Mode & Strahlbreite $w_x$ in mm & Strahlbreite $w_y$ in mm \\ \hline
+        TEM00 & \multicolumn{2}{c}{0,70155} \\ 
+        TEM23 & 0,693 & 0,767 \\
+        TEM33 & 0,702 & 0,756 \\
+        TEM50 & 0,715 & 0,754 \\
+        TEM52 & 0,765 & 0,673 
+	\end{tabular}
+\end{center}
+
+Man sieht in der tabellarischen Auflistung, dass die Strahlbreiten sich kaum gegenüber der Grundmode verändert haben. Es ist nur eine leichte Tendenz zu breiteren Strahlen erkennbar.
+ 
 \chapter{Fazit}
 In diesem Versuch gelang es uns erfolgreich, eine Laserresonator mit Hilfe eines Justierlasers einzustellen und mit variirender Resonatorlänge zu betreiben. Ebenso konnten gezeigt werden, dass die Resonatorleistung annährend konstant mit der Resonatorlänge ist, so lange er sich nicht in der nähe der ganzen oder halben Stabilitätsgrenze befindet. Diese konnte für den vorliegenden Aufbau ungefähr durch Annäherung des Leistungsabfalls in den letzten 2,5\% als linearen Prozess auf 92,7cm festgesetzt werden.
 
