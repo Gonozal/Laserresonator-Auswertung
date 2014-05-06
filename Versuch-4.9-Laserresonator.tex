@@ -531,7 +531,7 @@ table[x index={0},y index={2}, x error index ={1}, y error index={3}] {messdaten
 Der Fit der Geraden durch die letzten beiden Messpunkte liefert $x=92,6916$ als Stabilitätsgrenze. Auf Grund fehlende weiterer Messpunkte im relevanten Intervall ist eine genaue Bestimmung und eine Fehlerangabe des errechneten Werts schwierig, hier würde eine weiterer Messwert bei z.B. 88.5cm Resonatorlänge helfen.
 \section{Strahlbreite der Grundmode in Abhängigkeit von der Resonatorlänge}
 Die Strahlbreite wird aus den gemessenen Daten gewonnen, indem auf die gemessenen Punkte ein Gauß-fit 
-$\frac{k}{\sigma\sqrt{2\pi}} \mdot {e}^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^{2}}$
+$\frac{k}{\sigma\sqrt{2\pi}} \cdot {e}^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^{2}}$
 gelegt wird. Die Strahlbreite wird dann über die Formel
 $w=2*\sqrt{4}\cdot\sigma$
 bestimmt. Dies führt zu folgenden experimentellen und erwarteten Werten für die Strahlbreite in Abhängigkeit der Resonatorlänge:
@@ -539,16 +539,17 @@ bestimmt. Dies führt zu folgenden experimentellen und erwarteten Werten für di
     \begin{tabular}{ | l | l | l | l | p{4cm} |}
     \hline
     $L$ in cm & $w_x\left(\frac{L}{2}\right)$ in mm & $w_y\left(\frac{L}{2}\right)$ in mm & Differenz x und y in \% & $w_{lit}$ in mm \\ \hline
-    25 & 0,4924 & 0,4798 & 2,55 & 0,4742 \\ \hline
-    32 & 0,7677 & 0,7491 & 2,42 & 0,5190 \\ \hline
-    39 & 0,6776 & 0,6703 & 1,08 & 0,5632 \\ \hline
-    46 & 0,5173 & 0,5728 & 9,69 & 0,6089 \\ \hline
-    53 & 0,6358 & 0,6383 & 0,39 & 0,6588 \\ \hline
-    60 & 0,6777 & 0,6899 & 1,77 & 0,7161 \\ \hline
-    67 & 0,7957 & 0,7758 & 2,50 & 0,7868 \\ \hline
-    74 & 0,8592 & 0,8857 & 2,99 & 0,8832 \\ \hline
-    81 & 0,9856 & 1,0212 & 3,49 & 1,0431 \\ \hline
-    88 & 1,4031 & 1,5161 & 7,45 & 1,5411 \\ \hline
+    25 & 0,4924 & 0,4798 & 2,55 & 0,4742 $\pm$0,0079 \\ \hline
+    32 & 0,7677 & 0,7491 & 2,42 & 0,5190 $\pm$0,0087 \\ \hline
+    39 & 0,6776 & 0,6703 & 1,08 & 0,5632 $\pm$0,0094 \\ \hline
+    46 & 0,5173 & 0,5728 & 9,69 & 0,6089 $\pm$0,0101 \\ \hline
+    53 & 0,6358 & 0,6383 & 0,39 & 0,6588 $\pm$0,0110 \\ \hline
+    60 & 0,6777 & 0,6899 & 1,77 & 0,7161 $\pm$0,0119 \\ \hline
+    67 & 0,7957 & 0,7758 & 2,50 & 0,7868 $\pm$0,0131 \\ \hline
+    74 & 0,8592 & 0,8857 & 2,99 & 0,8832 $\pm$0,0147 \\ \hline
+    81 & 0,9856 & 1,0212 & 3,49 & 1,0431 $\pm$0,0174 \\ \hline
+    88 & 1,4031 & 1,5161 & 7,45 & 1,5411 $\pm$0,0259 \\ \hline
+    
     \end{tabular}
 \end{center}
 
@@ -596,7 +597,7 @@ bestimmt. Dies führt zu folgenden experimentellen und erwarteten Werten für di
   (53, 0.3294*2) (60, 0.3581*2) (67, 0.3934*2) (74, 0.4416*2)
   (81, 0.5215*2) (88, 0.7755*2)
 };
-\addlegendentry{$w_{lit}$}
+\addlegendentry{$w_\mathrm{lit}$}
 \end{axis}
 \end{tikzpicture}
 \captionof{figure}{
@@ -666,7 +667,7 @@ $$8,02480ms \pm 0,00015 \equalhat 10GHz$$
 \addlegendentry{Gemessener Modenabstand}
 
 \addplot[smooth, blue, mark=x, mark size=2pt] coordinates {
-  (25, 0.600000) (32, 0.468750) (39, 0.384615) (46, 0.326087)
+  (25, 0.6) (32, 0.468750) (39, 0.384615) (46, 0.326087)
   (53, 0.283018) (60, 0.250000) (67, 0.223881) (74, 0.202703)
   (81, 0.185185) (88, 0.170454)
 };
@@ -703,8 +704,8 @@ Mit dem aus 4.3 gewonnenen Umrechnungsfaktor $8,0248s \equalhat 10GHz$ kommen wi
     \hline
     % Resonatorlänge & Modenabstand in ms	& Abstand in GHz & Theoretischer Abstand in GHz & stuff \\ \hline
     Resonatorlänge in cm & Ausgangsleistung in mW & Fehler der Ausgangsleistung in $\mu W$ & Verstärkungsbandbreite in GHz \\ \hline
-    88 & 191 & 4 & 0,9444 \\ \hline
-    88 & 101 & 4 & 0,6376 \\ \hline
+    81 & 191 & 4 & 0,9444 $\pm$ 0,11 \\ \hline
+    81 & 101 & 4 & 0,6376 $\pm$ 0,11 \\ \hline
   \end{tabular}
 \end{center}
 Da diese Werte nur graphisch bestimmt wurden mit einer Abschätzung, wo die jeweiligen Gauskurven enden, sind die gewonnenen Verstärkungsbandbreiten nur eine grobe Abschätzung der tatsächlichen Werte.
